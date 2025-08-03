@@ -177,7 +177,8 @@
         <section class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">حول اللعبة</h2>
             <p class="text-gray-200 max-w-2xl mx-auto mb-6">
-لعبة اجتماعية بـ 4 إلى 15 لاعب: محققين، عالم، مجرم. استعد لتجربة مسلية مع الأصدقاء والعائلة مع لعبة أنت قدها ؟            </p>
+                لعبة اجتماعية بـ 4 إلى 15 لاعب: محققين، عالم، مجرم. استعد لتجربة مسلية مع الأصدقاء والعائلة مع لعبة أنت قدها؟
+            </p>
             <div class="news-ticker">
                 <p class="text-white text-lg">اللعبة ستنطلق يوم 8/10 على Google Play!</p>
             </div>
@@ -208,7 +209,7 @@
         </section>
 
         <section>
-            <h2 class="text-3xl font-bold mb-6 text-center">مواصافات اللعبة</h2>
+            <h2 class="text-3xl font-bold mb-6 text-center">لماذا تختار لعبتنا؟</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-purple-800 bg-opacity-80 p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-medium mb-2">دقة البرمجة</h3>
@@ -246,10 +247,13 @@
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const closeModal = document.getElementById('closeModal');
+        const imageSources = Array.from(images).map(img => img.src);
+        let currentImageIndex = 0;
 
-        images.forEach(image => {
+        images.forEach((image, index) => {
             image.addEventListener('click', () => {
                 modalImage.src = image.src;
+                currentImageIndex = index;
                 modal.classList.add('active');
             });
         });
@@ -263,6 +267,29 @@
                 modal.classList.remove('active');
             }
         });
+
+        modal.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            startX = touch.clientX;
+        });
+
+        modal.addEventListener('touchend', (e) => {
+            const touch = e.changedTouches[0];
+            const endX = touch.clientX;
+            const deltaX = endX - startX;
+
+            if (deltaX > 50 && currentImageIndex > 0) {
+                // Swipe right (show previous image)
+                currentImageIndex--;
+                modalImage.src = imageSources[currentImageIndex];
+            } else if (deltaX < -50 && currentImageIndex < imageSources.length - 1) {
+                // Swipe left (show next image)
+                currentImageIndex++;
+                modalImage.src = imageSources[currentImageIndex];
+            }
+        });
+
+        let startX = 0;
     </script>
 </body>
 </html>
