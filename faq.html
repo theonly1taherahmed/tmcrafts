@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - tm crafts</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-blue: #2563eb;
+      --secondary-blue: #3b82f6;
+      --accent-yellow: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-blue);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-purple);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-red);
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 7px 5%;
+      background: rgba(30, 41, 59, 0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent-yellow);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-yellow);
+      transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .main-nav a:hover::after {
+      width: 70%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      height: 3px;
+      width: 100%;
+      background: var(--text-light);
+      margin: 3px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .faq-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .faq-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .faq-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .faq-subtitle {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e2e8f0;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      transition: var(--transition);
+      padding-left: 50px;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-gray);
+      font-size: 20px;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .category-btn {
+      padding: 12px 25px;
+      background: var(--light-bg);
+      border: 2px solid #e2e8f0;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--primary-blue);
+      color: white;
+      border-color: var(--primary-blue);
+    }
+
+    .faq-content {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      padding: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .faq-question:hover {
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 25px 25px;
+    }
+
+    .faq-item.active .faq-toggle i {
+      transform: rotate(180deg);
+    }
+
+    .faq-toggle {
+      transition: var(--transition);
+      color: var(--primary-blue);
+    }
+
+    .contact-promo {
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+      border-radius: var(--border-radius);
+      padding: 40px;
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-promo h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-promo p {
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: white;
+      color: var(--primary-blue);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .promo-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 50px;
+      transition: var(--transition);
+    }
+
+    .back-to-home:hover {
+      color: var(--accent-yellow);
+      gap: 12px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      padding: 30px 5% 20px;
+      color: var(--text-light);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      width: 120px;
+      filter: drop-shadow(0 0 5px var(--accent-yellow));
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .copyright {
+      width: 100%;
+      text-align: center;
+      color: #cbd5e1;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-gray);
+      display: none;
+    }
+
+    .no-results i {
+      font-size: 3rem;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 10px 5%;
+      }
+      
+      .nav-container {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 41, 59, 0.98);
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .nav-container.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .faq-title {
+        font-size: 2rem;
+      }
+
+      .categories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .category-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .logo-img {
+        width: 130px;
+      }
+
+      .faq-title {
+        font-size: 1.8rem;
+      }
+
+      .faq-question {
+        padding: 20px;
+        font-size: 1rem;
+      }
+
+      .contact-promo {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
+    </div>
+    
+    <div class="nav-container" id="navContainer">
+      <nav class="main-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#games"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+      </nav>
+    </div>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <main class="faq-container">
+    <div class="faq-header">
+      <h1 class="faq-title">Frequently Asked Questions</h1>
+      <p class="faq-subtitle">Find answers to the most common questions about tm crafts games and services.</p>
+    </div>
+
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-box" id="searchInput" placeholder="Search for questions...">
+    </div>
+
+    <div class="categories">
+      <div class="category-btn active" data-category="all">
+        <i class="fas fa-star"></i> All Questions
+      </div>
+      <div class="category-btn" data-category="games">
+        <i class="fas fa-gamepad"></i> Games
+      </div>
+      <div class="category-btn" data-category="account">
+        <i class="fas fa-user"></i> Account
+      </div>
+      <div class="category-btn" data-category="technical">
+        <i class="fas fa-cogs"></i> Technical
+      </div>
+      <div class="category-btn" data-category="privacy">
+        <i class="fas fa-shield-alt"></i> Privacy
+      </div>
+    </div>
+
+    <div class="faq-content">
+      <div class="faq-item" data-categories="games technical">
+        <div class="faq-question">
+          How do I reset a game's progress?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>To reset a game's progress, look for a settings or options menu within the game. Many games have a "Reset Progress" or "Clear Data" option. If you can't find it, try clearing your browser cache for our website, but note that this will reset all games' progress.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="technical">
+        <div class="faq-question">
+          Why are the games not loading properly?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>If games aren't loading, try these steps:</p>
+          <ol>
+            <li>Refresh the page</li>
+            <li>Clear your browser cache and cookies</li>
+            <li>Check your internet connection</li>
+            <li>Try using a different browser (Chrome, Firefox, Safari)</li>
+            <li>Disable browser extensions that might interfere</li>
+          </ol>
+          <p>If problems persist, contact our support team with details about your device and browser.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="games">
+        <div class="faq-question">
+          Are there any age restrictions for playing games on tm crafts?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>tm crafts is designed to be family-friendly and suitable for all ages. However, we recommend that children under 13 use the site with parental supervision. Some games might require basic reading skills or involve challenges that are more suitable for older children.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="account">
+        <div class="faq-question">
+          Do I need to create an account to play games?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>No, you can enjoy most of our games without creating an account. However, creating an account allows you to save your progress across devices, participate in leaderboards, and get personalized game recommendations.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="technical">
+        <div class="faq-question">
+          Why is a game running slowly on my device?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>Game performance can be affected by several factors:</p>
+          <ul>
+            <li>Your device's processing power and memory</li>
+            <li>Other applications running in the background</li>
+            <li>Internet connection speed</li>
+            <li>Browser capabilities</li>
+          </ul>
+          <p>Try closing other tabs and applications, and make sure your browser is updated to the latest version.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="privacy">
+        <div class="faq-question">
+          What information does tm crafts collect?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>We collect minimal information to improve your experience. This may include:</p>
+          <ul>
+            <li>Non-personal information (browser type, device type)</li>
+            <li>Game progress and scores (if you choose to save them)</li>
+            <li>Anonymous usage statistics to improve our games</li>
+          </ul>
+          <p>We do not collect personal information without your consent. For more details, please read our <a href="privacy.html" style="color: var(--primary-blue);">Privacy Policy</a>.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="games">
+        <div class="faq-question">
+          How often are new games added?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>We add new games regularly, typically 2-3 new games per month. We also update existing games with new levels and features based on user feedback. Follow us on social media to get notified about new releases!</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="technical">
+        <div class="faq-question">
+          Can I play tm crafts games on my mobile device?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! Most of our games are mobile-friendly and can be played on smartphones and tablets. For the best experience, we recommend using a modern browser like Chrome or Safari on your mobile device. Some games might work better in landscape orientation.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="account">
+        <div class="faq-question">
+          I forgot my password. How can I reset it?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>If you've forgotten your password, go to the login page and click on "Forgot Password." Enter your email address, and we'll send you a link to reset your password. If you're still having trouble, contact our support team for assistance.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-categories="games">
+        <div class="faq-question">
+          Can I suggest a new game idea?
+          <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! We love hearing game ideas from our community. Please use our <a href="contact.html" style="color: var(--primary-blue);">contact form</a> to share your suggestions. While we can't implement every idea, we consider all suggestions and often create games based on user requests.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <i class="fas fa-search"></i>
+      <h3>No results found</h3>
+      <p>Try different keywords or browse the categories</p>
+    </div>
+
+    <div class="contact-promo">
+      <h2>Still have questions?</h2>
+      <p>Can't find the answer you're looking for? Our support team is here to help you!</p>
+      <a href="contact.html" class="promo-btn">Contact Support</a>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/justlogo.png" alt="tm crafts" class="footer-logo">
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      
+      <p class="copyright">tm crafts.</p>
+    </div>
+  </footer>
+
+  <script>
+    // تفعيل القائمة على الهواتف
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navContainer = document.getElementById('navContainer');
+    const header = document.getElementById('header');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navContainer.classList.toggle('active');
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navContainer.classList.remove('active');
+      });
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // البحث في الأسئلة
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+    
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      let visibleItems = 0;
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          visibleItems++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // إظهار رسالة عدم وجود نتائج
+      if (visibleItems === 0 && searchTerm !== '') {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+      }
+    });
+
+    // تصفية حسب الفئة
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // إزالة النشاط من جميع الأزرار
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        // إضافة النشاط للزر المحدد
+        button.classList.add('active');
+        
+        const category = button.getAttribute('data-category');
+        
+        // إظهار/إخفاء الأسئلة حسب الفئة
+        faqItems.forEach(item => {
+          const categories = item.getAttribute('data-categories');
+          
+          if (category === 'all' || categories.includes(category)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // إخفاء رسالة عدم وجود نتائج عند التصفية
+        noResults.style.display = 'none';
+        // مسح حقل البحث
+        searchInput.value = '';
+      });
+    });
+
+    // فتح الأسئلة التي تحتوي على كلمات البحث في عنوان URL
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchQuery = urlParams.get('q');
+      
+      if (searchQuery) {
+        searchInput.value = searchQuery;
+        searchInput.dispatchEvent(new Event('input'));
+        
+        // فتح الأسئلة التي تحتوي على كلمة البحث
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+          
+          if (question.includes(searchQuery.toLowerCase()) || answer.includes(searchQuery.toLowerCase())) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - tm crafts</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-blue: #2563eb;
+      --secondary-blue: #3b82f6;
+      --accent-yellow: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-blue);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-purple);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-red);
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 7px 5%;
+      background: rgba(30, 41, 59, 0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent-yellow);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-yellow);
+      transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .main-nav a:hover::after {
+      width: 70%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      height: 3px;
+      width: 100%;
+      background: var(--text-light);
+      margin: 3px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .feedback-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .feedback-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .feedback-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .feedback-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .feedback-subtitle {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .feedback-form {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e2e8f0;
+      border-radius: var(--border-radius);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .rating-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .rating-star {
+      font-size: 2.5rem;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .rating-star:hover,
+    .rating-star.active {
+      color: var(--accent-yellow);
+      transform: scale(1.2);
+    }
+
+    .rating-label {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--text-dark);
+      min-height: 24px;
+    }
+
+    .category-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .category-btn {
+      padding: 15px;
+      background: var(--light-bg);
+      border: 2px solid #e2e8f0;
+      border-radius: var(--border-radius);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--primary-blue);
+      color: white;
+      border-color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    .category-btn i {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .file-upload {
+      position: relative;
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .file-upload:hover {
+      border-color: var(--primary-blue);
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .file-upload input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .file-upload-icon {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+    }
+
+    .file-upload-text {
+      color: var(--text-gray);
+      margin-bottom: 10px;
+    }
+
+    .file-upload-hint {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .file-preview {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 15px;
+    }
+
+    .file-preview-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .file-preview-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .file-preview-item .remove-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 24px;
+      height: 24px;
+      background: var(--accent-red);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 20px;
+    }
+
+    .submit-btn:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .testimonials {
+      margin-top: 60px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-text {
+      color: var(--text-gray);
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .testimonial-text::before {
+       content: "";
+       position: absolute;
+       left: 0;
+       top: -15px;
+       font-size: 3rem;
+       color: var(--accent-yellow);
+       font-family: Arial, sans-serif;
+    }
+
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+    }
+
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 50px;
+      transition: var(--transition);
+    }
+
+    .back-to-home:hover {
+      color: var(--accent-yellow);
+      gap: 12px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      padding: 30px 5% 20px;
+      color: var(--text-light);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      width: 120px;
+      filter: drop-shadow(0 0 5px var(--accent-yellow));
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .copyright {
+      width: 100%;
+      text-align: center;
+      color: #cbd5e1;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      background: var(--text-dark);
+      color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      background: var(--accent-green);
+    }
+
+    .toast.error {
+      background: var(--accent-red);
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 10px 5%;
+      }
+      
+      .nav-container {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 41, 59, 0.98);
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .nav-container.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .feedback-title {
+        font-size: 2rem;
+      }
+
+      .feedback-form {
+        padding: 25px;
+      }
+
+      .category-buttons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .logo-img {
+        width: 130px;
+      }
+
+      .feedback-title {
+        font-size: 1.8rem;
+      }
+
+      .category-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-star {
+        font-size: 2rem;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .file-preview {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
+    </div>
+    
+    <div class="nav-container" id="navContainer">
+      <nav class="main-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#games"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="helpcenter.html"><i class="fas fa-question-circle"></i> Help</a>
+      </nav>
+    </div>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <main class="feedback-container">
+    <div class="feedback-header">
+      <h1 class="feedback-title">Share Your Feedback</h1>
+      <p class="feedback-subtitle">We value your opinion! Your feedback helps us improve our games and services.</p>
+    </div>
+
+    <form id="feedbackForm" class="feedback-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+      </div>
+
+      <div class="form-group">
+        <label>How would you rate your experience?</label>
+        <div class="rating-container">
+          <div class="rating-star" data-value="1"><i class="fas fa-star"></i></div>
+          <div class="rating-star" data-value="2"><i class="fas fa-star"></i></div>
+          <div class="rating-star" data-value="3"><i class="fas fa-star"></i></div>
+          <div class="rating-star" data-value="4"><i class="fas fa-star"></i></div>
+          <div class="rating-star" data-value="5"><i class="fas fa-star"></i></div>
+        </div>
+        <div class="rating-label" id="ratingLabel">Please rate your experience</div>
+        <input type="hidden" id="rating" name="rating" value="0">
+      </div>
+
+      <div class="form-group">
+        <label>Feedback Category</label>
+        <div class="category-buttons">
+          <div class="category-btn" data-category="suggestion">
+            <i class="fas fa-lightbulb"></i>
+            Suggestion
+          </div>
+          <div class="category-btn" data-category="bug">
+            <i class="fas fa-bug"></i>
+            Bug Report
+          </div>
+          <div class="category-btn" data-category="compliment">
+            <i class="fas fa-heart"></i>
+            Compliment
+          </div>
+          <div class="category-btn" data-category="complaint">
+            <i class="fas fa-exclamation-circle"></i>
+            Complaint
+          </div>
+        </div>
+        <input type="hidden" id="category" name="category" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Feedback</label>
+        <textarea id="message" name="message" required placeholder="Please share your thoughts, ideas, or suggestions..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Attach Screenshots (Optional)</label>
+        <div class="file-upload" id="fileUpload">
+          <div class="file-upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <p class="file-upload-text">Drag & drop files here or click to browse</p>
+          <p class="file-upload-hint">Maximum 4 images (PNG, JPG, JPEG)</p>
+          <input type="file" id="screenshots" name="screenshots" accept="image/*" multiple>
+        </div>
+        <div class="file-preview" id="filePreview"></div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fas fa-paper-plane"></i> Submit Feedback
+      </button>
+    </form>
+
+    <div class="testimonials">
+      <h2 class="section-title">What Our Users Say</h2>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">The games on tm crafts are incredibly fun and engaging. My kids love them, and I appreciate that they're family-friendly!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">J</div>
+            <div class="author-info">
+              <h4>John</h4>
+              <p>Parent</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">I've been using tm crafts for my classroom, and my students absolutely love the educational games. It makes learning fun!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div class="author-info">
+              <h4>roman</h4>
+              <p>Teacher</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">The variety of games is impressive. Whenever I need a quick break, I know I can find something fun to play on tm crafts.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">C</div>
+            <div class="author-info">
+              <h4>cody</h4>
+              <p>Regular User</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/justlogo.png" alt="tm crafts" class="footer-logo">
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      
+      <p class="copyright">tm crafts.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // تفعيل القائمة على الهواتف
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navContainer = document.getElementById('navContainer');
+    const header = document.getElementById('header');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navContainer.classList.toggle('active');
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navContainer.classList.remove('active');
+      });
+    });
+
+    // نظام التقييم
+    const stars = document.querySelectorAll('.rating-star');
+    const ratingInput = document.getElementById('rating');
+    const ratingLabel = document.getElementById('ratingLabel');
+    
+    const ratingLabels = {
+      0: "Please rate your experience",
+      1: "Poor",
+      2: "Fair",
+      3: "Good",
+      4: "Very Good",
+      5: "Excellent"
+    };
+    
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const value = parseInt(star.getAttribute('data-value'));
+        ratingInput.value = value;
+        
+        // تحديث النجوم
+        stars.forEach(s => {
+          const starValue = parseInt(s.getAttribute('data-value'));
+          if (starValue <= value) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+        
+        // تحديث التسمية
+        ratingLabel.textContent = ratingLabels[value];
+      });
+      
+      star.addEventListener('mouseenter', () => {
+        const value = parseInt(star.getAttribute('data-value'));
+        
+        stars.forEach(s => {
+          const starValue = parseInt(s.getAttribute('data-value'));
+          if (starValue <= value) {
+            s.style.color = 'var(--accent-yellow)';
+          } else {
+            s.style.color = '#e2e8f0';
+          }
+        });
+      });
+      
+      star.addEventListener('mouseleave', () => {
+        const currentRating = parseInt(ratingInput.value);
+        
+        stars.forEach(s => {
+          const starValue = parseInt(s.getAttribute('data-value'));
+          if (starValue <= currentRating) {
+            s.style.color = 'var(--accent-yellow)';
+          } else {
+            s.style.color = '#e2e8f0';
+          }
+        });
+      });
+    });
+
+    // أزرار الفئة
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const categoryInput = document.getElementById('category');
+    
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        categoryInput.value = button.getAttribute('data-category');
+      });
+    });
+
+    // رفع الملفات وعرض المعاينة
+    const fileUpload = document.getElementById('fileUpload');
+    const fileInput = document.getElementById('screenshots');
+    const filePreview = document.getElementById('filePreview');
+    const maxFiles = 4;
+    let uploadedFiles = [];
+
+    fileUpload.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileUpload.style.borderColor = 'var(--primary-blue)';
+      fileUpload.style.background = 'rgba(37, 99, 235, 0.1)';
+    });
+
+    fileUpload.addEventListener('dragleave', () => {
+      fileUpload.style.borderColor = '#cbd5e1';
+      fileUpload.style.background = 'transparent';
+    });
+
+    fileUpload.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileUpload.style.borderColor = '#cbd5e1';
+      fileUpload.style.background = 'transparent';
+      
+      if (e.dataTransfer.files.length > 0) {
+        handleFiles(e.dataTransfer.files);
+      }
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        handleFiles(fileInput.files);
+      }
+    });
+
+    function handleFiles(files) {
+      for (let i = 0; i < files.length; i++) {
+        if (uploadedFiles.length >= maxFiles) {
+          showToast('Maximum ' + maxFiles + ' files allowed', 'error');
+          break;
+        }
+        
+        const file = files[i];
+        if (!file.type.match('image.*')) {
+          showToast('Please upload image files only', 'error');
+          continue;
+        }
+        
+        uploadedFiles.push(file);
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const previewItem = document.createElement('div');
+          previewItem.className = 'file-preview-item';
+          previewItem.innerHTML = `
+            <img src="${e.target.result}" alt="Preview">
+            <div class="remove-btn" data-index="${uploadedFiles.length - 1}">
+              <i class="fas fa-times"></i>
+            </div>
+          `;
+          filePreview.appendChild(previewItem);
+          
+          // إضافة حدث إزالة الصورة
+          previewItem.querySelector('.remove-btn').addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            uploadedFiles.splice(index, 1);
+            filePreview.removeChild(previewItem);
+            updatePreviewIndexes();
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function updatePreviewIndexes() {
+      const removeButtons = filePreview.querySelectorAll('.remove-btn');
+      removeButtons.forEach((btn, index) => {
+        btn.setAttribute('data-index', index);
+      });
+    }
+
+    // إرسال النموذج
+    const feedbackForm = document.getElementById('feedbackForm');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    feedbackForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // التحقق من التقييم
+      if (ratingInput.value === '0') {
+        showToast('Please rate your experience', 'error');
+        return;
+      }
+      
+      // التحقق من الفئة
+      if (categoryInput.value === '') {
+        showToast('Please select a feedback category', 'error');
+        return;
+      }
+      
+      const formData = new FormData();
+      formData.append('name', document.getElementById('name').value);
+      formData.append('email', document.getElementById('email').value);
+      formData.append('rating', ratingInput.value);
+      formData.append('category', categoryInput.value);
+      formData.append('message', document.getElementById('message').value);
+      
+      // إضافة الملفات إذا وجدت
+      uploadedFiles.forEach(file => {
+        formData.append('screenshots', file);
+      });
+      
+      // تعطيل الزر أثناء الإرسال
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      try {
+        // محاكاة عملية الإرسال
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // إظهار رسالة النجاح
+        showToast('Thank you for your feedback! We appreciate your input.', 'success');
+        
+        // إعادة تعيين النموذج
+        feedbackForm.reset();
+        filePreview.innerHTML = '';
+        uploadedFiles = [];
+        
+        // إعادة تعيين النجوم والفئة
+        stars.forEach(star => star.classList.remove('active'));
+        ratingInput.value = '0';
+        ratingLabel.textContent = 'Please rate your experience';
+        categoryButtons.forEach(button => button.classList.remove('active'));
+        categoryInput.value = '';
+      } catch (error) {
+        showToast('There was an error sending your feedback. Please try again.', 'error');
+      } finally {
+        // إعادة تمكين الزر
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Feedback';
+      }
+    });
+
+    // وظيفة إظهار Toast
+    function showToast(message, type = '') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast';
+      if (type) toast.classList.add(type);
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
