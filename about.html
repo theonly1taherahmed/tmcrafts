@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - tm crafts</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-blue: #2563eb;
+      --secondary-blue: #3b82f6;
+      --accent-yellow: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-blue);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-purple);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-red);
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 7px 5%;
+      background: rgba(30, 41, 59, 0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent-yellow);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-yellow);
+      transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .main-nav a:hover::after {
+      width: 70%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      height: 3px;
+      width: 100%;
+      background: var(--text-light);
+      margin: 3px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .about-subtitle {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .about-content {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .about-text {
+      color: var(--text-gray);
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+
+    .about-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-yellow);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--primary-blue);
+      font-size: 24px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--accent-yellow);
+      color: var(--text-light);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-card h3 {
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: var(--text-gray);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .team-section {
+      margin-top: 60px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .team-member {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .member-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 4px solid var(--light-bg);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .team-member:hover .member-image {
+      border-color: var(--accent-yellow);
+      transform: scale(1.05);
+    }
+
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .member-role {
+      color: var(--primary-blue);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .member-desc {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 50px;
+      transition: var(--transition);
+    }
+
+    .back-to-home:hover {
+      color: var(--accent-yellow);
+      gap: 12px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      padding: 30px 5% 20px;
+      color: var(--text-light);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      width: 120px;
+      filter: drop-shadow(0 0 5px var(--accent-yellow));
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .copyright {
+      width: 100%;
+      text-align: center;
+      color: #cbd5e1;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 10px 5%;
+      }
+      
+      .nav-container {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 41, 59, 0.98);
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .nav-container.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-content {
+        padding: 25px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .logo-img {
+        width: 130px;
+      }
+
+      .about-title {
+        font-size: 1.8rem;
+      }
+
+      .features, .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
+    </div>
+    
+    <div class="nav-container" id="navContainer">
+      <nav class="main-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#games"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a>
+        <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </div>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <div class="about-header">
+      <h1 class="about-title">About tm crafts</h1>
+      <p class="about-subtitle">Your destination for fun, creative, and engaging games and quizzes!</p>
+    </div>
+
+    <div class="about-content">
+      <p class="about-text">tm crafts is your go-to platform for fun, creative, and engaging games and quizzes. Designed for kids, families, and anyone who loves adventure, our platform offers a vibrant and joyful experience.</p>
+      
+      <p class="about-text">Explore our diverse collection of games, from thrilling runners to creative challenges, and discover what makes you unique with our quizzes and self-tests!</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>Exciting Games</h3>
+        <p>Dive into thrilling adventures with our collection of handpicked games for all ages!</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-puzzle-piece"></i>
+        </div>
+        <h3>Fun Quizzes</h3>
+        <p>Test your knowledge and personality with our engaging and insightful quizzes!</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Vibrant Community</h3>
+        <p>Join players from around the world and share your experiences and high scores!</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Safe Environment</h3>
+        <p>Enjoy a safe, family-friendly environment with content suitable for all ages!</p>
+      </div>
+    </div>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/justlogo.png" alt="tm crafts" class="footer-logo">
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      
+      <p class="copyright">tm crafts</p>
+    </div>
+  </footer>
+
+  <script>
+    // تفعيل القائمة على الهواتف
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navContainer = document.getElementById('navContainer');
+    const header = document.getElementById('header');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navContainer.classList.toggle('active');
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navContainer.classList.remove('active');
+      });
+    });
+
+    // تأثيرات الظهور للعناصر
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // مراقبة العناصر لتطبيق تأثير الظهور
+    document.querySelectorAll('.feature-card, .team-member').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>

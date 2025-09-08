@@ -1,295 +1,1427 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تنزيل لعبة أنت قدها؟</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background: linear-gradient(45deg, #8B5CF6, #EF4444, #A78BFA, #F87171);
-            background-size: 400%;
-            animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .gallery img {
-            transition: transform 0.3s ease;
-            aspect-ratio: 16 / 9;
-            border: 4px solid #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            object-fit: contain;
-            width: 100%;
-            max-width: 200px;
-            max-height: 360px;
-            cursor: pointer;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .logo {
-            max-width: 180px;
-            height: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
-        }
-        .logo:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-        }
-        .news-ticker {
-            overflow: hidden;
-            white-space: nowrap;
-            background: rgba(139, 92, 246, 0.9);
-            padding: 8px 0;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        .news-ticker p {
-            display: inline-block;
-            animation: marquee 15s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-        }
-        .modal.active {
-            display: flex;
-        }
-        .gallery-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-        .studio-text {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-        .qr-code {
-            max-width: 150px;
-            height: auto;
-            margin-top: 1rem;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-        }
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: #ffffff;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-        .close-button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .logo {
-                max-width: 140px;
-            }
-            .gallery img {
-                border-width: 2px;
-                max-width: 150px;
-                max-height: 270px;
-            }
-            .container {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
-            }
-            .download-section {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            .gallery-section h2 {
-                text-align: center;
-            }
-            .gallery {
-                justify-content: center;
-            }
-            .studio-text {
-                font-size: 1rem;
-            }
-            .qr-code {
-                max-width: 120px;
-            }
-            .close-button {
-                top: 10px;
-                right: 10px;
-                width: 25px;
-                height: 25px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tm crafts</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* نظام الألوان المحسن */
+    :root {
+      --primary-blue: #2563eb;
+      --secondary-blue: #3b82f6;
+      --accent-yellow: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* الخلفية المتحركة المحسنة */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-blue);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-purple);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-red);
+      animation-delay: 3s;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-blue);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFade 1s ease-out forwards;
+      z-index: -1;
+    }
+
+    .particle.circle {
+      background: var(--accent-yellow);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes particleFade {
+      0% { opacity: 0.8; transform: translate(0, 0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+    }
+
+    /* الهيدر المحسن بشكل كبير */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      padding: 7px 5%;
+      background: rgba(30, 41, 59, 0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent-yellow);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-yellow);
+      transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .main-nav a:hover::after {
+      width: 70%;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius);
+      padding: 8px 15px;
+      width: 240px;
+      transition: var(--transition);
+    }
+
+    .search-bar:focus-within {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--accent-yellow);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      flex-grow: 1;
+      padding: 6px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-bar input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-bar button {
+      background: transparent;
+      border: none;
+      color: var(--accent-yellow);
+      cursor: pointer;
+      font-size: 17px;
+      transition: var(--transition);
+      padding: 4px;
+    }
+
+    .search-bar button:hover {
+      color: var(--text-light);
+      transform: scale(1.1);
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-login {
+      background: transparent;
+      color: var(--text-light);
+      border: 2px solid var(--accent-yellow);
+    }
+
+    .btn-login:hover {
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+    }
+
+    .btn-signup {
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+      border: 2px solid var(--accent-yellow);
+    }
+
+    .btn-signup:hover {
+      background: transparent;
+      color: var(--accent-yellow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      height: 3px;
+      width: 100%;
+      background: var(--text-light);
+      margin: 3px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* المحتوى الرئيسي */
+    .main-content {
+      padding-top: 100px;
+    }
+
+    /* قسم الهيرو الجديد */
+    .hero-section {
+      padding: 60px 5%;
+      text-align: center;
+      background: linear-gradient(to right, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+      border-radius: var(--border-radius);
+      margin: 20px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--dark-bg);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-title span {
+      color: var(--primary-blue);
+      text-shadow: 2px 2px 0px rgba(245, 158, 11, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+      padding: 12px 28px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+      padding: 12px 28px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* الأقسام والألعاب */
+    .section-container {
+      position: relative;
+      padding: 30px 5%;
+      margin: 40px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      color: var(--text-dark);
+      font-size: 2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .view-all {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+
+    .view-all:hover {
+      color: var(--accent-yellow);
+      gap: 8px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 25px;
+      padding: 15px 0;
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+      border: 1px solid #e2e8f0;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .game-thumb {
+      position: relative;
+      width: 100%;
+      height: 160px;
+      overflow: hidden;
+    }
+
+    .game-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .game-card:hover .game-thumb img {
+      transform: scale(1.1);
+    }
+
+    .game-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--accent-red);
+      color: var(--text-light);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .game-badge.popular {
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+    }
+
+    .game-content {
+      padding: 15px;
+    }
+
+    .game-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .game-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .game-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--accent-yellow);
+      font-weight: 600;
+    }
+
+    .game-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .game-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-bg);
+      color: var(--text-dark);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .game-btn:hover {
+      background: var(--primary-blue);
+      color: var(--text-light);
+    }
+
+    .play-btn {
+      display: block;
+      background: var(--primary-blue);
+      color: var(--text-light);
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      margin-top: 15px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .play-btn:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-2px);
+    }
+
+    /* قسم about المحسن */
+    #about {
+      padding: 50px 5%;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      margin: 50px 5%;
+      position: relative;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    #about p {
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-gray);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: var(--light-bg);
+      border-radius: var(--border-radius);
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid #e2e8f0;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-yellow);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--primary-blue);
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: var(--text-gray);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* الفوتر المحسن */
+    footer {
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      padding: 50px 5% 30px;
+      color: var(--text-light);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-logo {
+      width: 140px;
+      filter: drop-shadow(0 0 5px var(--accent-yellow));
+    }
+
+    .footer-description {
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .footer-heading {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-yellow);
+      transform: translateX(5px);
+    }
+
+    .footer-newsletter p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-input {
+      flex-grow: 1;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius);
+      padding: 12px 15px;
+      color: var(--text-light);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--accent-yellow);
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+    }
+
+    .newsletter-btn {
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 12px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      background: #fbbf24;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    .policy-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .policy-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .policy-links a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .copyright {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* تأثيرات للعناصر */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* تحسينات للشاشات الصغيرة */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 10px 5%;
+      }
+      
+      .nav-container {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 41, 59, 0.98);
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .nav-container.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .main-nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .search-bar {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .user-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .logo-img {
+        width: 130px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-100">
-    <header class="bg-gradient-to-r from-purple-700 to-red-500 text-white py-8 shadow-lg">
-        <div class="container mx-auto text-center">
-            <p class="studio-text">TMcrafts Studio</p>
-            <img src="images/entaaaadha.png" alt="شعار لعبة أنت قدها؟" class="logo mx-auto mb-4">
-            <h1 class="text-5xl font-extrabold">أنت قدها ؟</h1>
-            <p class="mt-3 text-xl">انطلق في مغامرة مليئة بالإثارة!</p>
-        </div>
-    </header>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
 
-    <main class="container mx-auto py-12 px-4">
-        <section class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">حول اللعبة</h2>
-            <p class="text-gray-200 max-w-2xl mx-auto mb-6">
-                لعبة اجتماعية بـ 4 إلى 15 لاعب: محققين، عالم، مجرم. استعد لتجربة مسلية مع الأصدقاء والعائلة مع لعبة أنت قدها؟
-            </p>
-            <div class="news-ticker">
-                <p class="text-white text-lg">اللعبة ستنطلق يوم 8/10 على Google Play!</p>
-            </div>
-            <div class="download-section flex flex-col items-center gap-4">
-                <div class="flex items-center gap-2">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ar_badge_web_generic.png" 
-                         alt="Get it on Google Play" class="h-12">
-                    <span class="text-sm text-gray-300">(قريبًا على Google Play - موعد الإطلاق: 8/10)</span>
-                </div>
-                <a href="https://raw.githubusercontent.com/theonly1taherahmed/tmcrafts/main/app-debug.apk" download 
-                   class="inline-block bg-purple-600 text-white py-3 px-8 rounded-lg text-lg font-medium hover:bg-purple-700 transition">
-                    تنزيل اللعبة الآن
-                </a>
-                <img src="images/frame.png" alt="رمز QR لتنزيل اللعبة" class="qr-code">
-            </div>
-        </section>
-
-        <section class="gallery-section mb-12">
-            <h2 class="text-3xl font-bold mb-6">معرض الصور</h2>
-            <div class="gallery">
-                <img src="images/1tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-                <img src="images/2tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-                <img src="images/3tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-                <img src="images/4tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-                <img src="images/5tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-                <img src="images/6tm.jpg" alt="لقطة شاشة من اللعبة" class="rounded-lg shadow-md">
-            </div>
-        </section>
-
-        <section>
-            <h2 class="text-3xl font-bold mb-6 text-center">المواصفات</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-purple-800 bg-opacity-80 p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-medium mb-2">دقة البرمجة</h3>
-                    <p class="text-gray-300">تمامًا متوافقة مع الجوال</p>
-                </div>
-                <div class="bg-red-600 bg-opacity-80 p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-medium mb-2">سهلة التثبيت</h3>
-                    <p class="text-gray-300">قم بتنزيل ملف APK وثبته بسهولة على جهازك.</p>
-                </div>
-                <div class="bg-purple-700 bg-opacity-80 p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-medium mb-2">تجربة ممتعة</h3>
-                    <p class="text-gray-300">استمتع برسومات رائعة وأسلوب لعب سلس.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gradient-to-r from-purple-900 to-red-700 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>Support: <a href="mailto:tmcrafts.com@gmail.com" class="underline hover:text-gray-300">tmcrafts.com@gmail.com</a></p>
-            <p class="mt-2">
-                <a href="privacy-terms.html" class="underline hover:text-gray-300">سياسة الخصوصية | شروط الاستخدام</a>
-            </p>
-            <p class="mt-2">tmcrafts - 2025 ©</p>
-        </div>
-    </footer>
-
-    <div class="modal" id="imageModal">
-        <span class="close-button" id="closeModal">&times;</span>
-        <img src="" alt="صورة مكبرة" id="modalImage">
+  <!-- الهيدر المحسن -->
+  <header class="header" id="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
     </div>
+    
+    <div class="nav-container" id="navContainer">
+      <nav class="main-nav">
+        <a href="#games"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="#quizzes"><i class="fas fa-puzzle-piece"></i> Quizzes</a>
+        <a href="#self-tests"><i class="fas fa-brain"></i> Self Tests</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+      </nav>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for a game...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
 
-    <script>
-        const images = document.querySelectorAll('.gallery img');
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const closeModal = document.getElementById('closeModal');
-        const imageSources = Array.from(images).map(img => img.src);
-        let currentImageIndex = 0;
+      <div class="user-actions">
+        <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="btn btn-signup"><i class="fas fa-user-plus"></i> Sign Up</button>
+      </div>
+    </div>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-        images.forEach((image, index) => {
-            image.addEventListener('click', () => {
-                modalImage.src = image.src;
-                currentImageIndex = index;
-                modal.classList.add('active');
-            });
-        });
+  <!-- المحتوى الرئيسي -->
+  <main class="main-content">
+    <!-- قسم الهيرو الجديد -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Discover <span>Fun Games</span> for Everyone</h1>
+        <p class="hero-subtitle">Explore our collection of exciting games, quizzes, and self-tests designed for all ages. Enjoy endless hours of fun and challenge your skills!</p>
+        <div class="hero-cta">
+          <a href="#games" class="btn-primary"><i class="fas fa-play-circle"></i> Play Now</a>
+          <a href="#about" class="btn-secondary"><i class="fas fa-explore"></i> Learn More</a>
+        </div>
+      </div>
+    </section>
 
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
+    <!-- قسم الألعاب -->
+    <section id="games" class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Games</h2>
+        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="games-grid">
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/tm-runner.png" alt="TM Runner">
+            <span class="game-badge">New</span>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">TM Runner</h3>
+            <p>Run, jump and avoid obstacles in this exciting adventure game!</p>
+            <div class="game-meta">
+              <div class="game-rating">
+                <i class="fas fa-star"></i>
+                <span>4.8</span>
+              </div>
+              <div class="game-actions">
+                <div class="game-btn"><i class="far fa-heart"></i></div>
+                <div class="game-btn"><i class="far fa-bookmark"></i></div>
+              </div>
+            </div>
+            <a href="/games/tm-runner/index.html" class="play-btn">Play Now</a>
+          </div>
+        </div>
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/match3.png" alt="Candy Match">
+            <span class="game-badge popular">Popular</span>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Candy Match</h3>
+            <p>Match colorful candies and solve challenging puzzles!</p>
+            <div class="game-meta">
+              <div class="game-rating">
+                <i class="fas fa-star"></i>
+                <span>4.5</span>
+              </div>
+              <div class="game-actions">
+                <div class="game-btn"><i class="far fa-heart"></i></div>
+                <div class="game-btn"><i class="far fa-bookmark"></i></div>
+              </div>
+            </div>
+            <a href="/embeds/match3.html" class="play-btn">Play Now</a>
+          </div>
+        </div>
 
-        modal.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            startX = touch.clientX;
-        });
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/running.png" alt="Endless Run">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Endless Run</h3>
+            <p>Run as far as you can in this endless runner game!</p>
+            <div class="game-meta">
+              <div class="game-rating">
+                <i class="fas fa-star"></i>
+                <span>4.3</span>
+              </div>
+              <div class="game-actions">
+                <div class="game-btn"><i class="far fa-heart"></i></div>
+                <div class="game-btn"><i class="far fa-bookmark"></i></div>
+              </div>
+            </div>
+            <a href="/embeds/running.html" class="play-btn">Play Now</a>
+          </div>
+        </div>
 
-        modal.addEventListener('touchend', (e) => {
-            const touch = e.changedTouches[0];
-            const endX = touch.clientX;
-            const deltaX = endX - startX;
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/cooking.png" alt="Kitchen Chef">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Kitchen Chef</h3>
+            <p>Become a master chef in this cooking challenge!</p>
+            <div class="game-meta">
+              <div class="game-rating">
+                <i class="fas fa-star"></i>
+                <span>4.6</span>
+              </div>
+              <div class="game-actions">
+                <div class="game-btn"><i class="far fa-heart"></i></div>
+                <div class="game-btn"><i class="far fa-bookmark"></i></div>
+              </div>
+            </div>
+            <a href="/embeds/cooking.html" class="play-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            if (deltaX > 50 && currentImageIndex > 0) {
-                // Swipe right (show previous image)
-                currentImageIndex--;
-                modalImage.src = imageSources[currentImageIndex];
-            } else if (deltaX < -50 && currentImageIndex < imageSources.length - 1) {
-                // Swipe left (show next image)
-                currentImageIndex++;
-                modalImage.src = imageSources[currentImageIndex];
-            }
-        });
+    <!-- قسم quizzes -->
+    <section id="quizzes" class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Quizzes</h2>
+        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="games-grid">
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/quiz.png" alt="Personality Quiz">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Personality Quiz</h3>
+            <p>Discover your personality type with this fun quiz!</p>
+            <a href="/quizzes/personality.html" class="play-btn">Start Quiz</a>
+          </div>
+        </div>
 
-        let startX = 0;
-    </script>
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/quiz2.png" alt="Movie Quiz">
+            <span class="game-badge">New</span>
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Movie Trivia</h3>
+            <p>Test your knowledge about movies and celebrities!</p>
+            <a href="/quizzes/movie.html" class="play-btn">Start Quiz</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم self-tests -->
+    <section id="self-tests" class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Self Tests</h2>
+        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="games-grid">
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/self-test.png" alt="IQ Test">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">IQ Test</h3>
+            <p>Challenge your intelligence with this comprehensive IQ test!</p>
+            <a href="/self-tests/iq.html" class="play-btn">Take Test</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="/assets/thumbs/memory-test.png" alt="Memory Test">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">Memory Test</h3>
+            <p>How good is your memory? Take this test to find out!</p>
+            <a href="/self-tests/memory.html" class="play-btn">Take Test</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم about المحسن -->
+    <section id="about">
+      <h2 class="section-title">About tm crafts</h2>
+      <p>tm crafts is your go-to platform for fun, creative, and engaging games and quizzes. Designed for kids, families, and anyone who loves adventure, our platform offers a vibrant and joyful experience.</p>
+      <p>Explore our diverse collection of games, from thrilling runners to creative challenges, and discover what makes you unique with our quizzes and self-tests!</p>
+      
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3>Exciting Games</h3>
+          <p>Dive into thrilling adventures with our collection of handpicked games for all ages!</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <h3>Fun Quizzes</h3>
+          <p>Test your knowledge and personality with our engaging and insightful quizzes!</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Vibrant Community</h3>
+          <p>Join players from around the world and share your experiences and high scores!</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Safe Environment</h3>
+          <p>Enjoy a safe, family-friendly environment with content suitable for all ages!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- الفوتر المحسن -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/images/justlogo.png" alt="tm crafts" class="footer-logo">
+        <p class="footer-description">Your destination for fun games, quizzes, and self-tests for everyone!</p>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul>
+          <li><a href="#games"><i class="fas fa-chevron-right"></i> Games</a></li>
+          <li><a href="#quizzes"><i class="fas fa-chevron-right"></i> Quizzes</a></li>
+          <li><a href="#self-tests"><i class="fas fa-chevron-right"></i> Self Tests</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="footer-heading">Support</h3>
+        <ul>
+          <li><a href="/help"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+          <li><a href="/faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          <li><a href="/contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          <li><a href="/feedback"><i class="fas fa-chevron-right"></i> Feedback</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-newsletter">
+        <h3 class="footer-heading">Newsletter</h3>
+        <p>Subscribe to our newsletter to get updates on new games and features!</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Your email address">
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="https://www.instagram.com/tmcraftsgames" class="social-link" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tmcraftsgames" class="social-link" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+      
+      <div class="policy-links">
+        <a href="/terms.html">Terms of Conditions</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      
+      <p class="copyright">tm crafts.</p>
+    </div>
+  </footer>
+
+  <script>
+    // تفعيل القائمة على الهواتف
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navContainer = document.getElementById('navContainer');
+    const header = document.getElementById('header');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navContainer.classList.toggle('active');
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // تأثير الجسئات عند تحريك الماوس
+    document.addEventListener('mousemove', (e) => {
+      const particle = document.createElement('div');
+      particle.className = `particle ${Math.random() > 0.5 ? 'circle' : ''}`;
+      
+      // تحديد اتجاه الجسيمات عشوائياً
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 50 + 20;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      
+      particle.style.left = `${e.clientX}px`;
+      particle.style.top = `${e.clientY}px`;
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 1000);
+    });
+
+    // تأثير ظهور العناصر عند التمرير
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // مراقبة العناصر لتطبيق تأثير الظهور
+    document.querySelectorAll('.game-card, .feature-card').forEach(card => {
+      card.style.opacity = '0';
+      observer.observe(card);
+    });
+
+    // البحث عن الألعاب
+    const searchInput = document.querySelector('.search-bar input');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      let hasResults = false;
+      
+      document.querySelectorAll('.game-card').forEach(card => {
+        const title = card.querySelector('.game-title').textContent.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'block';
+          hasResults = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      const noResults = document.getElementById('no-results') || document.createElement('div');
+      noResults.id = 'no-results';
+      noResults.style.textAlign = 'center';
+      noResults.style.color = 'var(--text-dark)';
+      noResults.style.margin = '40px 0';
+      noResults.style.fontSize = '18px';
+      noResults.textContent = 'No games found. Try a different search.';
+      
+      if (!hasResults && query !== '') {
+        if (!document.getElementById('no-results')) {
+          document.querySelector('main').appendChild(noResults);
+        }
+      } else {
+        if (document.getElementById('no-results')) {
+          document.getElementById('no-results').remove();
+        }
+      }
+    });
+
+    // تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('tm crafts ready!');
+      
+      // تأثير تحميل الصفحة
+      const loadingOverlay = document.createElement('div');
+      loadingOverlay.style.position = 'fixed';
+      loadingOverlay.style.top = '0';
+      loadingOverlay.style.left = '0';
+      loadingOverlay.style.width = '100%';
+      loadingOverlay.style.height = '100%';
+      loadingOverlay.style.background = 'var(--light-bg)';
+      loadingOverlay.style.display = 'flex';
+      loadingOverlay.style.alignItems = 'center';
+      loadingOverlay.style.justifyContent = 'center';
+      loadingOverlay.style.zIndex = '9999';
+      loadingOverlay.style.transition = 'opacity 0.5s ease';
+      loadingOverlay.innerHTML = `
+        <div style="text-align: center;">
+          <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading awesome games...</p>
+        </div>
+      `;
+      document.body.appendChild(loadingOverlay);
+      
+      setTimeout(() => {
+        loadingOverlay.style.opacity = '0';
+        setTimeout(() => loadingOverlay.remove(), 500);
+      }, 1500);
+    });
+
+    // إضافة أنيميشن bounce
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes bounce {
+        0% { transform: translateY(0) scale(1); }
+        100% { transform: translateY(-20px) scale(1.1); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
