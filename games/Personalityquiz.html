@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TM Original Personality Quiz - tm crafts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* نظام الألوان المحسن */
+    :root {
+      --primary-purple: #8b5cf6;
+      --secondary-purple: #a78bfa;
+      --accent-pink: #ec4899;
+      --accent-yellow: #f59e0b;
+      --accent-blue: #3b82f6;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* الخلفية المتحركة المحسنة */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #f5f3ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-purple);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-pink);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-blue);
+      animation-delay: 3s;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-purple);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFade 1s ease-out forwards;
+      z-index: -1;
+    }
+
+    .particle.circle {
+      background: var(--accent-yellow);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes particleFade {
+      0% { opacity: 0.8; transform: translate(0, 0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+    }
+
+    /* الهيدر المحسن بشكل كبير */
+    .header {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: #fbbf24;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    /* محتوى الكويز */
+    .quiz-container {
+      width: 100%;
+      max-width: 800px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      padding: 30px;
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .quiz-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .quiz-description {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .quiz-stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      background: var(--light-bg);
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+    }
+
+    .stat i {
+      color: var(--accent-yellow);
+    }
+
+    /* أسئلة الكويز */
+    .quiz-content {
+      margin-top: 20px;
+    }
+
+    .question-container {
+      background: var(--light-bg);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .question-number {
+      font-size: 0.9rem;
+      color: var(--primary-purple);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .answers-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .answer-btn {
+      padding: 15px 20px;
+      border-radius: var(--border-radius);
+      border: 2px solid #e2e8f0;
+      background: var(--card-bg);
+      color: var(--text-dark);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .answer-btn:hover {
+      border-color: var(--primary-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(139, 92, 246, 0.1);
+    }
+
+    .answer-btn.selected {
+      background: var(--primary-purple);
+      color: white;
+      border-color: var(--primary-purple);
+    }
+
+    .answer-btn .answer-icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .quiz-progress {
+      height: 8px;
+      background: var(--light-bg);
+      border-radius: 4px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    /* نتيجة الكويز */
+    .quiz-result {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .result-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .result-emoji {
+      font-size: 4rem;
+      margin: 20px 0;
+    }
+
+    .result-description {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .result-details {
+      background: var(--light-bg);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 25px 0;
+      text-align: left;
+    }
+
+    .result-details h3 {
+      color: var(--primary-purple);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .result-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .trait-badge {
+      background: var(--primary-purple);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .action-btn {
+      padding: 12px 25px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary-purple);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(139, 92, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* واجهة المشاركة الاجتماعية الجديدة */
+    .social-share {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .social-share.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .share-container {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .social-share.active .share-container {
+      transform: translateY(0);
+    }
+
+    .share-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    .share-platforms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .share-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border-radius: var(--border-radius);
+      background: var(--light-bg);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .share-btn i {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .share-btn span {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .whatsapp-btn { color: #25D366; }
+    .facebook-btn { color: #1877F2; }
+    .twitter-btn { color: #1DA1F2; }
+    .instagram-btn { color: #E4405F; }
+    .telegram-btn { color: #0088cc; }
+    .copy-btn { color: var(--primary-purple); }
+
+    .share-close {
+      background: var(--primary-purple);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .share-close:hover {
+      background: var(--secondary-purple);
+    }
+
+    /* تأثيرات للعناصر */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* تحسينات للشاشات الصغيرة */
+    @media (max-width: 900px) {
+      .quiz-title {
+        font-size: 1.8rem;
+      }
+      
+      .question-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .quiz-title {
+        font-size: 1.6rem;
+      }
+      
+      .result-actions {
+        flex-direction: column;
+      }
+      
+      .action-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .quiz-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .share-platforms {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
+
+  <!-- واجهة المشاركة الاجتماعية -->
+  <div class="social-share" id="social-share">
+    <div class="share-container">
+      <h3 class="share-title">Share your result!</h3>
+      <div class="share-platforms">
+        <button class="share-btn whatsapp-btn" data-platform="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </button>
+        <button class="share-btn facebook-btn" data-platform="facebook">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </button>
+        <button class="share-btn twitter-btn" data-platform="twitter">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+        </button>
+        <button class="share-btn instagram-btn" data-platform="instagram">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </button>
+        <button class="share-btn telegram-btn" data-platform="telegram">
+          <i class="fab fa-telegram"></i>
+          <span>Telegram</span>
+        </button>
+        <button class="share-btn copy-btn" data-platform="copy">
+          <i class="fas fa-copy"></i>
+          <span>Copy Link</span>
+        </button>
+      </div>
+      <button class="share-close" id="share-close">Close</button>
+    </div>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
+    </div>
+    
+    <a href="../index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </header>
+
+  <!-- محتوى الكويز -->
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1 class="quiz-title">🌟 TM Original Personality Quiz 🌟</h1>
+      <p class="quiz-description">Answer fun questions about love, friendship, work & more 💫</p>
+      
+      <div class="quiz-stats">
+        <div class="stat">
+          <i class="fas fa-question-circle"></i>
+          <span id="total-questions">13 Questions</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-check-circle"></i>
+          <span id="current-progress">Progress: 0%</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quiz-progress">
+      <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+    </div>
+    
+    <div class="quiz-content" id="quiz-content">
+      <div class="question-container">
+        <div class="question-number" id="question-number">Question 1 of 13</div>
+        <div class="question-text" id="question-text">Loading question...</div>
+        
+        <div class="answers-container" id="answers-container">
+          <!-- سيتم إضافة الإجابات هنا عبر JavaScript -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="quiz-result" id="quiz-result" style="display: none;">
+      <h2 class="result-title">Your Personality Result! 🎉</h2>
+      <div class="result-emoji" id="result-emoji">🌟</div>
+      <div class="result-description" id="result-description"></div>
+      
+      <div class="result-details">
+        <h3>Your Key Traits:</h3>
+        <div class="result-traits" id="result-traits">
+          <!-- سيتم إضافة السمات هنا عبر JavaScript -->
+        </div>
+      </div>
+      
+      <div class="result-actions">
+        <button class="action-btn btn-primary" id="restart-btn">
+          <i class="fas fa-redo"></i> Try Again
+        </button>
+        <button class="action-btn btn-secondary" id="share-btn">
+          <i class="fas fa-share-alt"></i> Share Result
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      { q: "Do you enjoy going on romantic dates?", a: ["Yes", "Sometimes", "No"], map: ["Romantic", "Balanced", "Independent"] },
+      { q: "Do you trust people easily?", a: ["Yes", "Depends", "No"], map: ["Trusting", "Balanced", "Cautious"] },
+      { q: "How do you value friendship?", a: ["Very important", "Somewhat important", "Not a priority"], map: ["Caring", "Balanced", "Independent"] },
+      { q: "How do you spend weekends?", a: ["With friends", "Working on goals", "Relaxing alone"], map: ["Social", "Ambitious", "Chill"] },
+      { q: "Do you like being the leader in your group?", a: ["Yes", "Sometimes", "No"], map: ["Leader", "Balanced", "Observer"] },
+      { q: "Do you believe in love at first sight?", a: ["Yes", "Not sure", "No"], map: ["Dreamer", "Balanced", "Realist"] },
+      { q: "At work, what's most important?", a: ["Teamwork", "Recognition", "Growth"], map: ["Caring", "Ambitious", "Planner"] },
+      { q: "What attracts you most in a partner?", a: ["Honesty", "Humor", "Ambition"], map: ["Caring", "Funny", "Ambitious"] },
+      { q: "Do you enjoy artistic activities?", a: ["Yes", "Sometimes", "No"], map: ["Creative", "Balanced", "Practical"] },
+      { q: "How do you act when losing in a game?", a: ["Laugh it off", "Try harder", "Get angry"], map: ["Chill", "Focused", "Competitive"] },
+      { q: "Would you chase a big dream despite challenges?", a: ["Yes", "Maybe", "No"], map: ["Adventurer", "Balanced", "Planner"] },
+      { q: "Do you like giving surprises to loved ones?", a: ["Yes", "Sometimes", "No"], map: ["Caring", "Balanced", "Reserved"] },
+      { q: "If you're on a date, do you prefer:", a: ["Romantic dinner", "Adventure activity", "Casual hangout"], map: ["Romantic", "Adventurer", "Chill"] }
+    ];
+
+    let currentQuestion = 0;
+    let results = {};
+
+    // عناصر DOM
+    const questionNumberEl = document.getElementById("question-number");
+    const questionTextEl = document.getElementById("question-text");
+    const answersContainerEl = document.getElementById("answers-container");
+    const progressBarEl = document.getElementById("progress-bar");
+    const currentProgressEl = document.getElementById("current-progress");
+    const totalQuestionsEl = document.getElementById("total-questions");
+    const quizContentEl = document.getElementById("quiz-content");
+    const quizResultEl = document.getElementById("quiz-result");
+    const resultEmojiEl = document.getElementById("result-emoji");
+    const resultDescriptionEl = document.getElementById("result-description");
+    const resultTraitsEl = document.getElementById("result-traits");
+    const restartBtn = document.getElementById("restart-btn");
+    const shareBtn = document.getElementById("share-btn");
+    const socialShareEl = document.getElementById("social-share");
+    const shareCloseEl = document.getElementById("share-close");
+    const shareButtons = document.querySelectorAll('.share-btn');
+
+    // شخصيات وأوصافها
+    const personalityDescriptions = {
+      Romantic: { emoji: "❤️", desc: "You're warm and love deep connections. You value intimacy and emotional bonds." },
+      Independent: { emoji: "🗽", desc: "You're strong and love your freedom. You thrive when you can make your own choices." },
+      Trusting: { emoji: "🤝", desc: "You open your heart easily and believe in others. You see the good in people." },
+      Cautious: { emoji: "🛡️", desc: "You take time before trusting fully. You protect your heart and make careful decisions." },
+      Leader: { emoji: "👑", desc: "You inspire and guide people around you. You naturally take charge in situations." },
+      Observer: { emoji: "👀", desc: "You prefer to watch and analyze situations. You're thoughtful and perceptive." },
+      Dreamer: { emoji: "🌙", desc: "You believe in magic and possibilities. You see the world through a creative lens." },
+      Realist: { emoji: "⚖️", desc: "You see life as it is, with balance. You're practical and grounded in reality." },
+      Adventurer: { emoji: "🔥", desc: "You love risks and excitement. You're always seeking new experiences." },
+      Planner: { emoji: "📅", desc: "You like structure and preparation. You feel best when you have a clear plan." },
+      Creative: { emoji: "🎨", desc: "You express yourself through art and ideas. You have a unique perspective on the world." },
+      Practical: { emoji: "🔧", desc: "You focus on realistic and useful things. You're good at solving concrete problems." },
+      Caring: { emoji: "💝", desc: "You love to make others feel special. You're empathetic and nurturing." },
+      Reserved: { emoji: "🌌", desc: "You keep your emotions private. You're introspective and value your inner world." },
+      Ambitious: { emoji: "🚀", desc: "You always aim high and chase success. You're driven and determined." },
+      Funny: { emoji: "😂", desc: "You spread joy and laughter wherever you go. You have a great sense of humor." },
+      Chill: { emoji: "😎", desc: "You take life easy and enjoy the ride. You don't get stressed easily." },
+      Focused: { emoji: "🎯", desc: "You concentrate until you achieve your goal. You have strong determination." },
+      Competitive: { emoji: "🏆", desc: "Winning is your ultimate motivation! You thrive on challenges." },
+      Social: { emoji: "🥳", desc: "You thrive around people and love social energy. You're outgoing and friendly." },
+      Balanced: { emoji: "⚖️", desc: "You maintain equilibrium in your life. You adapt well to different situations." }
+    };
+
+    // تهيئة الكويز
+    function initQuiz() {
+      totalQuestionsEl.textContent = `${quizData.length} Questions`;
+      loadQuestion();
+      
+      // إضافة مستمعي الأحداث لأزرار المشاركة
+      shareBtn.addEventListener("click", showShareModal);
+      shareCloseEl.addEventListener("click", hideShareModal);
+      
+      shareButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          shareResult(this.dataset.platform);
+        });
+      });
+    }
+
+    // تحميل السؤال الحالي
+    function loadQuestion() {
+      const question = quizData[currentQuestion];
+      
+      // تحديث رقم السؤال والتقدم
+      questionNumberEl.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+      const progressPercent = ((currentQuestion) / quizData.length) * 100;
+      progressBarEl.style.width = `${progressPercent}%`;
+      currentProgressEl.textContent = `Progress: ${Math.round(progressPercent)}%`;
+      
+      // عرض نص السؤال
+      questionTextEl.textContent = question.q;
+      
+      // مسح الإجابات السابقة
+      answersContainerEl.innerHTML = "";
+      
+      // إضافة الإجابات
+      question.a.forEach((answer, index) => {
+        const answerBtn = document.createElement("button");
+        answerBtn.className = "answer-btn";
+        answerBtn.innerHTML = `
+          <span class="answer-icon">${String.fromCharCode(65 + index)}</span>
+          ${answer}
+        `;
+        answerBtn.addEventListener("click", () => selectAnswer(question.map[index]));
+        answersContainerEl.appendChild(answerBtn);
+      });
+    }
+
+function selectAnswer(type) {
+  const question = quizData[currentQuestion];
+  const chosenAnswer = question.a[question.map.indexOf(type)];
+
+  // 📝 أرسل الإجابة للشيت
+  sendToSheet(question.q, chosenAnswer);
+
+  results[type] = (results[type] || 0) + 1;
+  currentQuestion++;
+  
+  if (currentQuestion < quizData.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+
+
+
+    // عرض النتيجة النهائية
+    function showResult() {
+      quizContentEl.style.display = "none";
+      quizResultEl.style.display = "block";
+      progressBarEl.style.width = "100%";
+      currentProgressEl.textContent = "Progress: 100%";
+      
+      // تحديد السمات الرئيسية
+      const sortedTraits = Object.entries(results)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 4);
+      
+      const primaryTrait = sortedTraits[0][0];
+      const primaryTraitInfo = personalityDescriptions[primaryTrait] || { emoji: "🌟", desc: "You're wonderfully unique!" };
+      
+      // عرض النتيجة
+      resultEmojiEl.textContent = primaryTraitInfo.emoji;
+      resultDescriptionEl.textContent = primaryTraitInfo.desc;
+      
+      // عرض السمات
+      resultTraitsEl.innerHTML = "";
+      sortedTraits.forEach(([trait, count]) => {
+        const traitBadge = document.createElement("span");
+        traitBadge.className = "trait-badge";
+        traitBadge.textContent = `${trait} (${count})`;
+        resultTraitsEl.appendChild(traitBadge);
+      });
+    }
+
+    // إعادة بدء الكويز
+    restartBtn.addEventListener("click", () => {
+      currentQuestion = 0;
+      results = {};
+      quizContentEl.style.display = "block";
+      quizResultEl.style.display = "none";
+      loadQuestion();
+    });
+
+    // عرض واجهة المشاركة
+    function showShareModal() {
+      socialShareEl.classList.add('active');
+    }
+
+    // إخفاء واجهة المشاركة
+    function hideShareModal() {
+      socialShareEl.classList.remove('active');
+    }
+
+    // مشاركة النتيجة على المنصات الاجتماعية
+    function shareResult(platform) {
+      const primaryTrait = Object.entries(results)
+        .sort((a, b) => b[1] - a[1])[0][0];
+      
+      const shareText = `I took the TM Original Personality Quiz and discovered I'm ${primaryTrait}! ${personalityDescriptions[primaryTrait]?.desc || "Find out your personality type!"}`;
+      const shareUrl = encodeURIComponent(window.location.href);
+      const encodedText = encodeURIComponent(shareText);
+      
+      let shareLink = '';
+      
+      switch(platform) {
+        case 'whatsapp':
+          shareLink = `https://wa.me/?text=${encodedText}%20${shareUrl}`;
+          break;
+        case 'facebook':
+          shareLink = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodedText}`;
+          break;
+        case 'twitter':
+          shareLink = `https://twitter.com/intent/tweet?text=${encodedText}&url=${shareUrl}`;
+          break;
+        case 'instagram':
+          // Instagram doesn't support direct sharing via URL
+          alert('To share on Instagram, copy the result and paste it in your Instagram story or post.');
+          return;
+        case 'telegram':
+          shareLink = `https://t.me/share/url?url=${shareUrl}&text=${encodedText}`;
+          break;
+        case 'copy':
+          navigator.clipboard.writeText(`${shareText} ${window.location.href}`).then(() => {
+            alert('Result copied to clipboard! 📋');
+            hideShareModal();
+            return;
+          }).catch(() => {
+            prompt('Copy this text to share:', `${shareText} ${window.location.href}`);
+            hideShareModal();
+            return;
+          });
+          break;
+      }
+      
+      if (platform !== 'copy') {
+        window.open(shareLink, '_blank');
+        hideShareModal();
+      }
+    }
+
+    // بدء الكويز عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    // ✅ إرسال البيانات لجوجل شيت
+function sendToSheet(question, answer) {
+  fetch("https://script.google.com/macros/s/AKfycbwtijnC_MwoEAnyIDN2QWl220lAOxXqXVZctwW43Uta9TbzDq9_b9U_ywPSCnxD5vU1/exec", {   // ← هنا حط لينك الويب آب بتاعك من Google Apps Script
+    method: "POST",
+    body: JSON.stringify({
+      question: question,
+      answer: answer,
+      session: session // هنضبط session كمان
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).catch(err => console.error("Error sending to sheet:", err));
+}
+
+// 🔑 session ID عشوائي لكل مستخدم
+const session = Math.random().toString(36).substr(2, 9);
+
+  </script>
+</body>
+</html>

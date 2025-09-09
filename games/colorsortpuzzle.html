@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Charger City Driver - tm crafts</title>
+  <title>Color Sort Puzzle - tm crafts</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* نظام الألوان المحسن */
     :root {
-      --primary-blue: #2563eb;
-      --secondary-blue: #3b82f6;
+      --primary-purple: #8b5cf6;
+      --secondary-purple: #a78bfa;
       --accent-yellow: #f59e0b;
       --accent-red: #ef4444;
-      --accent-purple: #8b5cf6;
+      --accent-blue: #3b82f6;
+      --accent-pink: #ec4899;
       --dark-bg: #1e293b;
       --darker-bg: #0f172a;
       --light-bg: #f8fafc;
@@ -54,7 +55,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      background: linear-gradient(135deg, var(--light-bg) 0%, #f5f3ff 100%);
       overflow: hidden;
     }
 
@@ -66,9 +67,9 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+        radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 25%);
       animation: glowPulse 8s ease-in-out infinite;
     }
 
@@ -84,7 +85,7 @@
       height: 40px;
       top: 15%;
       left: 10%;
-      background: var(--primary-blue);
+      background: var(--primary-purple);
       animation-delay: 0s;
     }
 
@@ -102,7 +103,7 @@
       height: 35px;
       top: 65%;
       left: 15%;
-      background: var(--accent-purple);
+      background: var(--accent-pink);
       animation-delay: 2s;
     }
 
@@ -111,7 +112,7 @@
       height: 30px;
       top: 75%;
       left: 75%;
-      background: var(--accent-red);
+      background: var(--accent-blue);
       animation-delay: 3s;
     }
 
@@ -119,7 +120,7 @@
       position: absolute;
       width: 6px;
       height: 6px;
-      background: var(--primary-blue);
+      background: var(--primary-purple);
       border-radius: 50%;
       opacity: 0;
       animation: particleFade 1s ease-out forwards;
@@ -214,7 +215,7 @@
 
     .game-header {
       padding: 30px;
-      background: linear-gradient(to right, #1a365d, #2d3748);
+      background: linear-gradient(to right, var(--primary-purple), var(--accent-pink));
       color: var(--text-light);
       display: flex;
       flex-wrap: wrap;
@@ -294,7 +295,7 @@
     .game-frame-wrapper {
       position: relative;
       width: 100%;
-      max-width: 1000px;
+      max-width: 800px;
       margin: 0 auto;
       border-radius: var(--border-radius);
       overflow: hidden;
@@ -306,6 +307,7 @@
     .game-frame {
       width: 100%;
       height: 70vh;
+      max-height: 800px;
       border: none;
       display: block;
       border-radius: 8px;
@@ -335,14 +337,14 @@
     }
 
     .btn-primary {
-      background: var(--primary-blue);
+      background: var(--primary-purple);
       color: white;
     }
 
     .btn-primary:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-purple);
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 6px 12px rgba(139, 92, 246, 0.3);
     }
 
     /* قسم اللعبة */
@@ -395,12 +397,12 @@
     .feature-icon {
       width: 50px;
       height: 50px;
-      background: rgba(37, 99, 235, 0.1);
+      background: rgba(139, 92, 246, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-blue);
+      color: var(--primary-purple);
       font-size: 20px;
     }
 
@@ -481,7 +483,7 @@
 
     .game-card-btn {
       padding: 8px 15px;
-      background: var(--primary-blue);
+      background: var(--primary-purple);
       color: var(--text-light);
       border-radius: var(--border-radius);
       text-decoration: none;
@@ -491,7 +493,7 @@
     }
 
     .game-card-btn:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-purple);
       transform: translateY(-2px);
     }
 
@@ -569,7 +571,7 @@
     }
 
     .copy-btn {
-      background: var(--primary-blue);
+      background: var(--primary-purple);
       color: white;
       border: none;
       padding: 0 20px;
@@ -579,7 +581,7 @@
     }
 
     .copy-btn:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-purple);
     }
 
     .share-platforms {
@@ -727,31 +729,31 @@
   <div class="game-container">
     <div class="game-header">
       <div class="game-thumbnail">
-        <img src="/images/cars1.jpg" alt="Charger City Driver">
+        <img src="/images/ColorSortPuzzle.jpg"  alt="Color Sort Puzzle">
       </div>
       
       <div class="game-info">
         <h1 class="game-title">
-          Charger City Driver
-          <span class="game-badge">RACING</span>
+          Color Sort Puzzle
+          <span class="game-badge">BRAIN GAME</span>
         </h1>
         <p class="game-description">
-          Drive fast, avoid traffic and reach checkpoints in this exciting racing game! 
-          Test your driving skills through busy city streets and become the ultimate driver.
+          Sort and match colors in this addictive puzzle game! Arrange the colored liquids 
+          in tubes until each tube contains only one color. Challenge your brain with hundreds of levels!
         </p>
         
         <div class="game-stats">
           <div class="stat">
             <i class="fas fa-star"></i>
-            <span>4.5/5 Rating</span>
+            <span>4.89/5 Rating</span>
           </div>
           <div class="stat">
             <i class="fas fa-users"></i>
-            <span>12K+ Players</span>
+            <span>35K+ Players</span>
           </div>
           <div class="stat">
             <i class="fas fa-gamepad"></i>
-            <span>Racing</span>
+            <span>Puzzle</span>
           </div>
         </div>
       </div>
@@ -761,11 +763,10 @@
       <div class="game-frame-wrapper">
         <iframe 
           id="gameFrame"
-          src="https://html5.gamedistribution.com/3f0aec385266424bb0529dfcecfe30b4/?gd_sdk_referrer_url=https://tm-crafts.com/games/ChargerCityDriver.html"
+          src="https://html5.gamemonetize.co/xhh7ex13czhu6gjlbsxwc7ihma1ltmnj/"
           class="game-frame"
           scrolling="no" 
-          allowfullscreen
-          sandbox="allow-scripts allow-same-origin allow-forms">
+          allowfullscreen>
         </iframe>
       </div>
     </div>
@@ -779,49 +780,51 @@
     <div class="game-details">
       <h2 class="section-title">About This Game</h2>
       <p>
-        Charger City Driver is an exciting racing game that puts you behind the wheel of powerful cars
-        in a bustling city environment. Navigate through traffic, avoid obstacles, and reach checkpoints
-        before time runs out. Upgrade your vehicle, unlock new cars, and become the best driver in Charger City!
+        Color Sort Puzzle is a relaxing yet challenging puzzle game where your goal is to sort 
+        colored liquids in tubes until each tube contains only one color. With simple tap controls 
+        and hundreds of levels, this game is perfect for exercising your brain and improving your 
+        problem-solving skills. Enjoy the satisfying experience of organizing colors in this 
+        addictive puzzle game!
       </p>
       
       <div class="game-features">
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-car"></i>
+            <i class="fas fa-palette"></i>
           </div>
           <div class="feature-content">
-            <h3>Multiple Cars</h3>
-            <p>Choose from a variety of vehicles with different stats</p>
+            <h3>Color Sorting</h3>
+            <p>Sort colored liquids in tubes until each contains only one color</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-road"></i>
+            <i class="fas fa-brain"></i>
           </div>
           <div class="feature-content">
-            <h3>City Environment</h3>
-            <p>Navigate through busy streets with realistic traffic</p>
+            <h3>Brain Training</h3>
+            <p>Challenge your problem-solving and logical thinking skills</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-tachometer-alt"></i>
+            <i class="fas fa-layer-group"></i>
           </div>
           <div class="feature-content">
-            <h3>Upgrade System</h3>
-            <p>Improve your car's performance with upgrades</p>
+            <h3>Hundreds of Levels</h3>
+            <p>Enjoy countless levels with increasing difficulty</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-flag-checkered"></i>
+            <i class="fas fa-medal"></i>
           </div>
           <div class="feature-content">
-            <h3>Challenging Tracks</h3>
-            <p>Multiple levels with increasing difficulty</p>
+            <h3>Achievements</h3>
+            <p>Unlock achievements and compete with friends</p>
           </div>
         </div>
       </div>
@@ -835,46 +838,7 @@
     <div class="games-grid">
       <div class="game-card">
         <div class="game-card-thumb">
-          <img src="/images/SprunkiSquidGaming.jpg" alt="Sprunki Squid Gaming">
-        </div>
-        <div class="game-card-content">
-          <h3 class="game-card-title">Sprunki Squid Gaming</h3>
-          <p>Play the ultimate squid challenge and survive tricky levels!</p>
-          <div class="game-card-actions">
-            <a href="/games/sprunkisquidgaming.html" class="game-card-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-card">
-        <div class="game-card-thumb">
-          <img src="/images/LastWar Survival.jpg" alt="LastWar Survival">
-        </div>
-        <div class="game-card-content">
-          <h3 class="game-card-title">LastWar Survival</h3>
-          <p>Fight to survive in the apocalypse and defeat endless waves of enemies!</p>
-          <div class="game-card-actions">
-            <a href="/games/lastwar.html" class="game-card-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-card">
-        <div class="game-card-thumb">
-          <img src="/images/ElliesRecipeDubaiChocolateBar.jpg" alt="Ellie's Recipe: Dubai Chocolate Bar">
-        </div>
-        <div class="game-card-content">
-          <h3 class="game-card-title">Ellie's Recipe: Dubai Chocolate Bar</h3>
-          <p>Help Ellie create a delicious Dubai-style chocolate bar in this fun cooking game!</p>
-          <div class="game-card-actions">
-            <a href="/games/ElliesRecipeDubaiChocolateBar.html" class="game-card-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-card">
-        <div class="game-card-thumb">
-          <img src="/images/ConnectFruits.jpg" alt="Connect Fruits">
+          <img src="/images/ConnectFruits.jpg" alt="ConnectFruits">
         </div>
         <div class="game-card-content">
           <h3 class="game-card-title">Connect Fruits</h3>
@@ -884,10 +848,48 @@
           </div>
         </div>
       </div>
+      
+      <div class="game-card">
+        <div class="game-card-thumb">
+          <img src="/images/originalquiz.png" alt="originalquiz">
+        </div>
+        <div class="game-card-content">
+          <h3 class="game-card-title">original quiz</h3>
+          <p>Test your knowledge in sports, music, and more!</p>
+          <div class="game-card-actions">
+            <a href="/games/generalquiz.html" class="game-card-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-card">
+        <div class="game-card-thumb">
+          <img src="/images/KillTheKing.jpg" alt="Kill The King">
+        </div>
+        <div class="game-card-content">
+          <h3 class="game-card-title">Kill The King</h3>
+          <p>Take down the king in this action-packed medieval challenge!</p>
+          <div class="game-card-actions">
+            <a href="/games/killtheking.html" class="game-card-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-card">
+        <div class="game-card-thumb">
+          <img src="/images/MyFashionHairSalon.jpg" alt="MyFashionHairSalon">
+        </div>
+        <div class="game-card-content">
+          <h3 class="game-card-title">My Fashion Hair Salon</h3>
+          <p>Style, cut, and color hair in your very own fashion salon!</p>
+          <div class="game-card-actions">
+            <a href="/games/MyFashionHairSalon.html" class="game-card-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="note">If the game fails to load inside the frame (embedding blocked by provider), you will be offered to open it in a new tab.</div>
 
   <!-- نافذة المشاركة -->
   <div class="share-modal" id="shareModal">
@@ -956,7 +958,7 @@
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Charger City Driver page loaded!');
+      console.log('Color Sort Puzzle page loaded!');
       
       // تأثير تحميل الصفحة
       const loadingOverlay = document.createElement('div');
@@ -974,7 +976,7 @@
       loadingOverlay.innerHTML = `
         <div style="text-align: center;">
           <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
-          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Charger City Driver...</p>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Color Sort Puzzle...</p>
         </div>
       `;
       document.body.appendChild(loadingOverlay);
@@ -1027,7 +1029,7 @@
       
       // تحديث روابط المشاركة للشبكات الاجتماعية
       const encodedUrl = encodeURIComponent(window.location.href);
-      const encodedTitle = encodeURIComponent('Charger City Driver - Awesome Racing Game on tm crafts');
+      const encodedTitle = encodeURIComponent('Color Sort Puzzle - Awesome Brain Game on tm crafts');
       
       document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
       document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
