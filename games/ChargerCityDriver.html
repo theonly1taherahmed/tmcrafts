@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tom & Jerry Run - tm crafts</title>
+  <title>Charger City Driver - tm crafts</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -214,7 +214,7 @@
 
     .game-header {
       padding: 30px;
-      background: linear-gradient(to right, #4C7A9D, #F2C438);
+      background: linear-gradient(to right, #1a365d, #2d3748);
       color: var(--text-light);
       display: flex;
       flex-wrap: wrap;
@@ -294,18 +294,22 @@
     .game-frame-wrapper {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background: #071021;
+      padding: 12px;
     }
 
     .game-frame {
       width: 100%;
-      height: 600px;
+      height: 70vh;
       border: none;
       display: block;
+      border-radius: 8px;
+      background: #000;
     }
 
     .game-actions {
@@ -644,6 +648,15 @@
       visibility: visible;
     }
 
+    .note {
+      margin-top: 8px;
+      color: #9aa7bb;
+      font-size: 13px;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+    }
+
     /* تأثيرات للعناصر */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -664,15 +677,15 @@
       .game-title {
         justify-content: center;
       }
+      
+      .game-frame {
+        height: 58vh;
+      }
     }
 
     @media (max-width: 600px) {
       .game-title {
         font-size: 1.8rem;
-      }
-      
-      .game-frame {
-        height: 400px;
       }
       
       .game-actions {
@@ -714,31 +727,31 @@
   <div class="game-container">
     <div class="game-header">
       <div class="game-thumbnail">
-                <img src="/images/tomjerry.jpg" alt="LastWar Survival">
+        <img src="/images/cars1.jpg" alt="Charger City Driver">
       </div>
       
       <div class="game-info">
         <h1 class="game-title">
-          Tom & Jerry Run
-          <span class="game-badge">CLASSIC</span>
+          Charger City Driver
+          <span class="game-badge">RACING</span>
         </h1>
         <p class="game-description">
-          Join the eternal chase between Tom and Jerry in this exciting endless runner! 
-          Play as Jerry running from Tom, or as Tom trying to catch Jerry.
+          Drive fast, avoid traffic and reach checkpoints in this exciting racing game! 
+          Test your driving skills through busy city streets and become the ultimate driver.
         </p>
         
         <div class="game-stats">
           <div class="stat">
             <i class="fas fa-star"></i>
-            <span>4.8/5 Rating</span>
+            <span>4.5/5 Rating</span>
           </div>
           <div class="stat">
             <i class="fas fa-users"></i>
-            <span>15K+ Players</span>
+            <span>12K+ Players</span>
           </div>
           <div class="stat">
             <i class="fas fa-gamepad"></i>
-            <span>Runner</span>
+            <span>Racing</span>
           </div>
         </div>
       </div>
@@ -747,10 +760,12 @@
     <div class="game-frame-container">
       <div class="game-frame-wrapper">
         <iframe 
-          src="https://html5.gamemonetize.co/a6d9kqfsjxbpdktw6p8j11z8bm776t8h/" 
+          id="gameFrame"
+          src="https://html5.gamedistribution.com/3f0aec385266424bb0529dfcecfe30b4/?gd_sdk_referrer_url=https://tm-crafts.com/games/ChargerCityDriver.html"
           class="game-frame"
           scrolling="no" 
-          allowfullscreen>
+          allowfullscreen
+          sandbox="allow-scripts allow-same-origin allow-forms">
         </iframe>
       </div>
     </div>
@@ -764,49 +779,49 @@
     <div class="game-details">
       <h2 class="section-title">About This Game</h2>
       <p>
-        Tom & Jerry Run brings the classic cartoon rivalry to life in an exciting endless runner game. 
-        Dodge obstacles, collect cheese, and enjoy the hilarious antics of these beloved characters. 
-        Choose your side and see how far you can go in this timeless chase!
+        Charger City Driver is an exciting racing game that puts you behind the wheel of powerful cars
+        in a bustling city environment. Navigate through traffic, avoid obstacles, and reach checkpoints
+        before time runs out. Upgrade your vehicle, unlock new cars, and become the best driver in Charger City!
       </p>
       
       <div class="game-features">
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-running"></i>
+            <i class="fas fa-car"></i>
           </div>
           <div class="feature-content">
-            <h3>Endless Running</h3>
-            <p>Run as far as you can in this addictive endless runner</p>
+            <h3>Multiple Cars</h3>
+            <p>Choose from a variety of vehicles with different stats</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-exchange-alt"></i>
+            <i class="fas fa-road"></i>
           </div>
           <div class="feature-content">
-            <h3>Two Characters</h3>
-            <p>Play as both Tom and Jerry with different abilities</p>
+            <h3>City Environment</h3>
+            <p>Navigate through busy streets with realistic traffic</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-chess"></i>
+            <i class="fas fa-tachometer-alt"></i>
           </div>
           <div class="feature-content">
-            <h3>Strategic Gameplay</h3>
-            <p>Use power-ups and obstacles to your advantage</p>
+            <h3>Upgrade System</h3>
+            <p>Improve your car's performance with upgrades</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-medal"></i>
+            <i class="fas fa-flag-checkered"></i>
           </div>
           <div class="feature-content">
-            <h3>Achievements</h3>
-            <p>Unlock rewards and achievements as you play</p>
+            <h3>Challenging Tracks</h3>
+            <p>Multiple levels with increasing difficulty</p>
           </div>
         </div>
       </div>
@@ -871,6 +886,8 @@
       </div>
     </div>
   </div>
+
+  <div class="note">If the game fails to load inside the frame (embedding blocked by provider), you will be offered to open it in a new tab.</div>
 
   <!-- نافذة المشاركة -->
   <div class="share-modal" id="shareModal">
@@ -939,7 +956,7 @@
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Tom & Jerry Run page loaded!');
+      console.log('Charger City Driver page loaded!');
       
       // تأثير تحميل الصفحة
       const loadingOverlay = document.createElement('div');
@@ -957,7 +974,7 @@
       loadingOverlay.innerHTML = `
         <div style="text-align: center;">
           <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
-          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Tom & Jerry Run...</p>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Charger City Driver...</p>
         </div>
       `;
       document.body.appendChild(loadingOverlay);
@@ -970,6 +987,19 @@
       // تهيئة رابط المشاركة
       const shareUrlInput = document.getElementById('shareUrlInput');
       shareUrlInput.value = window.location.href;
+      
+      // Fallback: إذا لم يتم تحميل الإطار
+      const frame = document.getElementById('gameFrame');
+      let loaded = false;
+      frame.addEventListener('load', () => loaded = true);
+      setTimeout(() => {
+        if (!loaded) {
+          const open = confirm("This game cannot be embedded on this site. Open it in a new tab?");
+          if (open) {
+            window.open(frame.src, '_blank');
+          }
+        }
+      }, 3000);
     });
 
     // إضافة أنيميشن bounce
@@ -997,7 +1027,7 @@
       
       // تحديث روابط المشاركة للشبكات الاجتماعية
       const encodedUrl = encodeURIComponent(window.location.href);
-      const encodedTitle = encodeURIComponent('Tom & Jerry Run - Awesome Game on tm crafts');
+      const encodedTitle = encodeURIComponent('Charger City Driver - Awesome Racing Game on tm crafts');
       
       document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
       document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tom & Jerry Run - tm crafts</title>
+  <title>My Fashion Hair Salon - tm crafts</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* نظام الألوان المحسن */
     :root {
-      --primary-blue: #2563eb;
-      --secondary-blue: #3b82f6;
+      --primary-pink: #ec4899;
+      --secondary-pink: #db2777;
       --accent-yellow: #f59e0b;
-      --accent-red: #ef4444;
       --accent-purple: #8b5cf6;
+      --accent-blue: #3b82f6;
       --dark-bg: #1e293b;
       --darker-bg: #0f172a;
       --light-bg: #f8fafc;
@@ -54,7 +54,7 @@
       width: 100%;
       height: 100%;
       z-index: -2;
-      background: linear-gradient(135deg, var(--light-bg) 0%, #e0e7ff 100%);
+      background: linear-gradient(135deg, var(--light-bg) 0%, #fdf2f8 100%);
       overflow: hidden;
     }
 
@@ -66,7 +66,7 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 15% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
         radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
       animation: glowPulse 8s ease-in-out infinite;
@@ -84,7 +84,7 @@
       height: 40px;
       top: 15%;
       left: 10%;
-      background: var(--primary-blue);
+      background: var(--primary-pink);
       animation-delay: 0s;
     }
 
@@ -111,7 +111,7 @@
       height: 30px;
       top: 75%;
       left: 75%;
-      background: var(--accent-red);
+      background: var(--accent-blue);
       animation-delay: 3s;
     }
 
@@ -119,7 +119,7 @@
       position: absolute;
       width: 6px;
       height: 6px;
-      background: var(--primary-blue);
+      background: var(--primary-pink);
       border-radius: 50%;
       opacity: 0;
       animation: particleFade 1s ease-out forwards;
@@ -214,7 +214,7 @@
 
     .game-header {
       padding: 30px;
-      background: linear-gradient(to right, #4C7A9D, #F2C438);
+      background: linear-gradient(to right, #ec4899, #db2777);
       color: var(--text-light);
       display: flex;
       flex-wrap: wrap;
@@ -294,18 +294,22 @@
     .game-frame-wrapper {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background: #071021;
+      padding: 12px;
     }
 
     .game-frame {
       width: 100%;
-      height: 600px;
+      height: 70vh;
       border: none;
       display: block;
+      border-radius: 8px;
+      background: #000;
     }
 
     .game-actions {
@@ -331,14 +335,14 @@
     }
 
     .btn-primary {
-      background: var(--primary-blue);
+      background: var(--primary-pink);
       color: white;
     }
 
     .btn-primary:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-pink);
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 6px 12px rgba(236, 72, 153, 0.3);
     }
 
     /* قسم اللعبة */
@@ -391,12 +395,12 @@
     .feature-icon {
       width: 50px;
       height: 50px;
-      background: rgba(37, 99, 235, 0.1);
+      background: rgba(236, 72, 153, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-blue);
+      color: var(--primary-pink);
       font-size: 20px;
     }
 
@@ -477,7 +481,7 @@
 
     .game-card-btn {
       padding: 8px 15px;
-      background: var(--primary-blue);
+      background: var(--primary-pink);
       color: var(--text-light);
       border-radius: var(--border-radius);
       text-decoration: none;
@@ -487,7 +491,7 @@
     }
 
     .game-card-btn:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-pink);
       transform: translateY(-2px);
     }
 
@@ -565,7 +569,7 @@
     }
 
     .copy-btn {
-      background: var(--primary-blue);
+      background: var(--primary-pink);
       color: white;
       border: none;
       padding: 0 20px;
@@ -575,7 +579,7 @@
     }
 
     .copy-btn:hover {
-      background: var(--secondary-blue);
+      background: var(--secondary-pink);
     }
 
     .share-platforms {
@@ -644,6 +648,15 @@
       visibility: visible;
     }
 
+    .note {
+      margin-top: 8px;
+      color: #9aa7bb;
+      font-size: 13px;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+    }
+
     /* تأثيرات للعناصر */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -664,15 +677,15 @@
       .game-title {
         justify-content: center;
       }
+      
+      .game-frame {
+        height: 58vh;
+      }
     }
 
     @media (max-width: 600px) {
       .game-title {
         font-size: 1.8rem;
-      }
-      
-      .game-frame {
-        height: 400px;
       }
       
       .game-actions {
@@ -714,17 +727,17 @@
   <div class="game-container">
     <div class="game-header">
       <div class="game-thumbnail">
-                <img src="/images/tomjerry.jpg" alt="LastWar Survival">
+                <img src="/images/MyFashionHairSalon.jpg"  alt="My Fashion Hair Salon">
       </div>
       
       <div class="game-info">
         <h1 class="game-title">
-          Tom & Jerry Run
-          <span class="game-badge">CLASSIC</span>
+          My Fashion Hair Salon
+          <span class="game-badge">STYLING</span>
         </h1>
         <p class="game-description">
-          Join the eternal chase between Tom and Jerry in this exciting endless runner! 
-          Play as Jerry running from Tom, or as Tom trying to catch Jerry.
+          Create stunning hairstyles and makeovers in this fashion hair salon game! 
+          Style hair, apply makeup, and choose fashionable outfits for your clients.
         </p>
         
         <div class="game-stats">
@@ -734,11 +747,11 @@
           </div>
           <div class="stat">
             <i class="fas fa-users"></i>
-            <span>15K+ Players</span>
+            <span>22K+ Players</span>
           </div>
           <div class="stat">
             <i class="fas fa-gamepad"></i>
-            <span>Runner</span>
+            <span>Fashion</span>
           </div>
         </div>
       </div>
@@ -747,7 +760,8 @@
     <div class="game-frame-container">
       <div class="game-frame-wrapper">
         <iframe 
-          src="https://html5.gamemonetize.co/a6d9kqfsjxbpdktw6p8j11z8bm776t8h/" 
+          id="gameFrame"
+          src="https://html5.gamemonetize.co/dj1jwzufate2bey9osne9ikqvhxu40hd/"
           class="game-frame"
           scrolling="no" 
           allowfullscreen>
@@ -764,49 +778,50 @@
     <div class="game-details">
       <h2 class="section-title">About This Game</h2>
       <p>
-        Tom & Jerry Run brings the classic cartoon rivalry to life in an exciting endless runner game. 
-        Dodge obstacles, collect cheese, and enjoy the hilarious antics of these beloved characters. 
-        Choose your side and see how far you can go in this timeless chase!
+        My Fashion Hair Salon is a creative styling game where you become a professional hairstylist
+        and fashion designer. Create beautiful hairstyles, apply makeup, and choose fashionable outfits
+        for your clients. Express your creativity and build your own fashion empire in this fun and
+        engaging salon game!
       </p>
       
       <div class="game-features">
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-running"></i>
+            <i class="fas fa-cut"></i>
           </div>
           <div class="feature-content">
-            <h3>Endless Running</h3>
-            <p>Run as far as you can in this addictive endless runner</p>
+            <h3>Hair Styling</h3>
+            <p>Cut, color, and style hair with various tools and accessories</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-exchange-alt"></i>
+            <i class="fas fa-palette"></i>
           </div>
           <div class="feature-content">
-            <h3>Two Characters</h3>
-            <p>Play as both Tom and Jerry with different abilities</p>
+            <h3>Makeup Artistry</h3>
+            <p>Apply makeup and create stunning looks for your clients</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-chess"></i>
+            <i class="fas fa-tshirt"></i>
           </div>
           <div class="feature-content">
-            <h3>Strategic Gameplay</h3>
-            <p>Use power-ups and obstacles to your advantage</p>
+            <h3>Fashion Design</h3>
+            <p>Choose fashionable outfits and accessories to complete the look</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-medal"></i>
+            <i class="fas fa-store"></i>
           </div>
           <div class="feature-content">
-            <h3>Achievements</h3>
-            <p>Unlock rewards and achievements as you play</p>
+            <h3>Salon Management</h3>
+            <p>Build and manage your own fashion hair salon business</p>
           </div>
         </div>
       </div>
@@ -820,13 +835,13 @@
     <div class="games-grid">
       <div class="game-card">
         <div class="game-card-thumb">
-          <img src="/images/tmcraft.png" alt="TM Runner">
+          <img src="/assets/thumbs/cooking.png" alt="Kitchen Chef">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">TM Runner</h3>
-          <p>Run, jump and avoid obstacles in this exciting adventure game!</p>
+          <h3 class="game-card-title">Kitchen Chef</h3>
+          <p>Become a master chef in this cooking challenge!</p>
           <div class="game-card-actions">
-            <a href="/games/tm-runner.html" class="game-card-btn">Play Now</a>
+            <a href="/embeds/cooking.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
@@ -846,6 +861,19 @@
       
       <div class="game-card">
         <div class="game-card-thumb">
+          <img src="/images/tmcraft.png" alt="TM Runner">
+        </div>
+        <div class="game-card-content">
+          <h3 class="game-card-title">TM Runner</h3>
+          <p>Run, jump and avoid obstacles in this exciting adventure game!</p>
+          <div class="game-card-actions">
+            <a href="/games/tm-runner.html" class="game-card-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-card">
+        <div class="game-card-thumb">
           <img src="/assets/thumbs/running.png" alt="Endless Run">
         </div>
         <div class="game-card-content">
@@ -856,21 +884,10 @@
           </div>
         </div>
       </div>
-      
-      <div class="game-card">
-        <div class="game-card-thumb">
-          <img src="/assets/thumbs/cooking.png" alt="Kitchen Chef">
-        </div>
-        <div class="game-card-content">
-          <h3 class="game-card-title">Kitchen Chef</h3>
-          <p>Become a master chef in this cooking challenge!</p>
-          <div class="game-card-actions">
-            <a href="/embeds/cooking.html" class="game-card-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+
+  <div class="note">If the game fails to load inside the frame (embedding blocked by provider), you will be offered to open it in a new tab.</div>
 
   <!-- نافذة المشاركة -->
   <div class="share-modal" id="shareModal">
@@ -939,13 +956,13 @@
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Tom & Jerry Run page loaded!');
+      console.log('My Fashion Hair Salon page loaded!');
       
       // تأثير تحميل الصفحة
       const loadingOverlay = document.createElement('div');
       loadingOverlay.style.position = 'fixed';
       loadingOverlay.style.top = '0';
-      loadingOverlay.style.left = '0';
+      loadingOverlay.style.left= '0';
       loadingOverlay.style.width = '100%';
       loadingOverlay.style.height = '100%';
       loadingOverlay.style.background = 'var(--light-bg)';
@@ -957,7 +974,7 @@
       loadingOverlay.innerHTML = `
         <div style="text-align: center;">
           <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
-          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Tom & Jerry Run...</p>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading My Fashion Hair Salon...</p>
         </div>
       `;
       document.body.appendChild(loadingOverlay);
@@ -970,6 +987,19 @@
       // تهيئة رابط المشاركة
       const shareUrlInput = document.getElementById('shareUrlInput');
       shareUrlInput.value = window.location.href;
+      
+      // Fallback: إذا لم يتم تحميل الإطار
+      const frame = document.getElementById('gameFrame');
+      let loaded = false;
+      frame.addEventListener('load', () => loaded = true);
+      setTimeout(() => {
+        if (!loaded) {
+          const open = confirm("This game cannot be embedded on this site. Open it in a new tab?");
+          if (open) {
+            window.open(frame.src, '_blank');
+          }
+        }
+      }, 3000);
     });
 
     // إضافة أنيميشن bounce
@@ -997,7 +1027,7 @@
       
       // تحديث روابط المشاركة للشبكات الاجتماعية
       const encodedUrl = encodeURIComponent(window.location.href);
-      const encodedTitle = encodeURIComponent('Tom & Jerry Run - Awesome Game on tm crafts');
+      const encodedTitle = encodeURIComponent('My Fashion Hair Salon - Awesome Styling Game on tm crafts');
       
       document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
       document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
