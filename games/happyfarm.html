@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Country Life Meadows – TM Games</title>
+  <title>happy farm – TM Games</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -410,7 +410,7 @@
       color: var(--text-gray);
     }
 
-    /* الألعاب المشابهة */
+     /* الألعاب المشابهة */
     .similar-games {
       width: 100%;
       max-width: 1200px;
@@ -444,12 +444,17 @@
       width: 100%;
       height: 160px;
       overflow: hidden;
-      background: #f1f5f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-green);
-      font-size: 2rem;
+    }
+
+    .game-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .game-card:hover .game-card-thumb img {
+      transform: scale(1.1);
     }
 
     .game-card-content {
@@ -472,7 +477,7 @@
 
     .game-card-btn {
       padding: 8px 15px;
-      background: var(--primary-green);
+      background: var(--primary-red);
       color: var(--text-light);
       border-radius: var(--border-radius);
       text-decoration: none;
@@ -482,7 +487,7 @@
     }
 
     .game-card-btn:hover {
-      background: var(--secondary-green);
+      background: var(--secondary-red);
       transform: translateY(-2px);
     }
 
@@ -763,7 +768,7 @@
       
       <div class="game-info">
         <h1 class="game-title">
-          Country Life Meadows
+          happy farm
           <span class="game-badge">FARMING</span>
         </h1>
         <p class="game-description">
@@ -788,16 +793,17 @@
       </div>
     </div>
     
-     <div class="game-frame-container">
-      <div class="game-frame-wrapper">
-        <iframe 
-          src="https://html5.gamedistribution.com/2deee771bf534191bc4071fa571a53a3/?utm_source=gameflare.com&utm_medium=fairyland-merge-and-magic&utm_campaign=block-and-redirect" 
-          class="game-frame"
-          scrolling="no" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
+      <div class="game-frame-container">
+  <div class="game-frame-wrapper" style="text-align:center; padding: 50px 20px;">
+    <a href="https://farm.centurygames.com/play" target="_blank" class="action-btn btn-primary" style="font-size:1.2rem; padding: 15px 30px;">
+      <i class="fas fa-external-link-alt"></i> Play on Official Website
+    </a>
+    <p style="margin-top:15px; color:var(--text-gray); font-size:0.9rem;">
+      Click the button above to play it
+    </p>
+  </div>
+</div>
+
     
     <div class="game-actions">
       <button class="action-btn btn-primary" id="shareButton">
@@ -808,7 +814,7 @@
     <div class="game-details">
       <h2 class="section-title">About This Game</h2>
       <p>
-        Country Life Meadows invites you to escape to a peaceful rural paradise where you can 
+        happy farm invites you to escape to a peaceful rural paradise where you can 
         build and manage your own farm. Plant a variety of crops, raise adorable animals, and 
         create the farming homestead of your dreams. With beautiful scenery, changing seasons, 
         and charming characters, this game offers a relaxing and rewarding farming experience 
@@ -866,52 +872,52 @@
     <div class="games-grid">
       <div class="game-card">
         <div class="game-card-thumb">
-          <i class="fas fa-tractor"></i>
+          <img src="/images/ColorSortPuzzle.jpg" alt="TM Runner">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">Farm Day Village</h3>
-          <p>Build your dream farm in this exciting farming simulation</p>
+          <h3 class="game-card-title">Color Sort Puzzle</h3>
+          <p>Sort the colors into the right tubes and challenge your brain!</p>
           <div class="game-card-actions">
-            <a href="#" class="game-card-btn">Play Now</a>
+            <a href="/games/colorsortpuzzle.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
       
       <div class="game-card">
         <div class="game-card-thumb">
-          <i class="fas fa-water"></i>
+          <img src="/images/ConnectFruits.jpg" alt="Connect Fruits">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">Family Farm Seaside</h3>
-          <p>Build your seaside farm with ocean views</p>
+          <h3 class="game-card-title">Connect Fruits</h3>
+          <p>Link up fruits and test your puzzle-solving skills!</p>
           <div class="game-card-actions">
-            <a href="#" class="game-card-btn">Play Now</a>
+            <a href="/games/connectfruits.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
       
       <div class="game-card">
         <div class="game-card-thumb">
-          <i class="fas fa-leaf"></i>
+          <img src="/images/ElliesRecipeDubaiChocolateBar.jpg" alt="ElliesRecipeDubaiChocolateBar">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">Farming Life</h3>
-          <p>Experience the full cycle of farm management</p>
+          <h3 class="game-card-title">Ellie's Recipe: Dubai Chocolate Bar</h3>
+          <p>Help Ellie create a delicious Dubai-style chocolate bar in this fun cooking game!</p>
           <div class="game-card-actions">
-            <a href="#" class="game-card-btn">Play Now</a>
+            <a href="/games/ElliesRecipeDubaiChocolateBar.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
       
       <div class="game-card">
         <div class="game-card-thumb">
-          <i class="fas fa-egg"></i>
+          <img src="/images/MasterDash.jpg" alt="MasterDash">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">Chicken Farm</h3>
-          <p>Manage your own chicken farm and produce eggs</p>
+          <h3 class="game-card-title">Master Dash</h3>
+          <p>Dash through obstacles and test your reflexes in this fast-paced game!</p>
           <div class="game-card-actions">
-            <a href="#" class="game-card-btn">Play Now</a>
+            <a href="/games/masterdash.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
@@ -985,7 +991,7 @@
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Country Life Meadows page loaded!');
+      console.log('happy farm page loaded!');
       
       // تأثير تحميل الصفحة
       const loadingOverlay = document.createElement('div');
@@ -1003,7 +1009,7 @@
       loadingOverlay.innerHTML = `
         <div style="text-align: center;">
           <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
-          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Country Life Meadows...</p>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading happy farm ...</p>
         </div>
       `;
       document.body.appendChild(loadingOverlay);
@@ -1043,7 +1049,7 @@
       
       // تحديث روابط المشاركة للشبكات الاجتماعية
       const encodedUrl = encodeURIComponent(window.location.href);
-      const encodedTitle = encodeURIComponent('Country Life Meadows - Peaceful Farming Simulation Game on tm crafts');
+      const encodedTitle = encodeURIComponent('happy farm - Peaceful Farming Simulation Game on tm crafts');
       
       document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
       document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
