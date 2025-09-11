@@ -644,6 +644,49 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+@media (max-width: 768px) {
+  .header,
+  .game-container,
+  .similar-games {
+    padding: 15px;
+    margin: 0 10px;
+    max-width: 100%;
+    border-radius: 8px; /* أصغر قليلاً ليناسب الهواتف */
+  }
+
+  .game-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .game-info {
+    min-width: auto;
+  }
+}
+@media (max-width: 768px) {
+  .game-frame {
+    height: 400px; /* أقل للشاشات الصغيرة */
+    width: 100%; /* دائماً ملائم للشاشة */
+  }
+}
+
+@media (max-width: 480px) {
+  .game-frame {
+    height: 300px; /* أجهزة صغيرة جدًا */
+  }
+}
+@media (max-width: 480px) {
+  .game-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
     /* تحسينات للشاشات الصغيرة */
     @media (max-width: 900px) {
@@ -660,6 +703,12 @@
         justify-content: center;
       }
     }
+@media (max-width: 600px) {
+  .games-grid {
+    grid-template-columns: 1fr; /* لعبة واحدة لكل صف */
+    gap: 15px;
+  }
+}
 
     @media (max-width: 600px) {
       .game-title {
