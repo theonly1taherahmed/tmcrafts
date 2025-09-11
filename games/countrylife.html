@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farm Day Village – TM Games</title>
+  <title>Country Life Meadows – TM Games</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* نظام الألوان المحسن */
     :root {
-      --primary-green: #22c55e;
-      --secondary-green: #4ade80;
-      --accent-yellow: #f59e0b;
-      --accent-brown: #a16207;
+      --primary-green: #16a34a;
+      --secondary-green: #22c55e;
+      --accent-yellow: #eab308;
+      --accent-brown: #854d0e;
       --accent-blue: #3b82f6;
       --dark-bg: #1e293b;
       --darker-bg: #0f172a;
@@ -66,9 +66,9 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 15% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(161, 98, 7, 0.1) 0%, transparent 25%);
+        radial-gradient(circle at 15% 50%, rgba(22, 163, 74, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(234, 179, 8, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(133, 77, 14, 0.1) 0%, transparent 25%);
       animation: glowPulse 8s ease-in-out infinite;
     }
 
@@ -196,7 +196,7 @@
     }
 
     .back-btn:hover {
-      background: #fbbf24;
+      background: #f59e0b;
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
     }
@@ -214,7 +214,7 @@
 
     .game-header {
       padding: 30px;
-      background: linear-gradient(to right, #22c55e, #f59e0b);
+      background: linear-gradient(to right, #16a34a, #eab308);
       color: var(--text-light);
       display: flex;
       flex-wrap: wrap;
@@ -233,6 +233,7 @@
       align-items: center;
       justify-content: center;
       font-size: 3rem;
+      color: #16a34a;
     }
 
     .game-info {
@@ -278,7 +279,7 @@
     }
 
     .stat i {
-      color: var(--accent-yellow);
+      color: var(--accept-yellow);
     }
 
     /* إطار اللعبة */
@@ -337,7 +338,7 @@
     .btn-primary:hover {
       background: var(--secondary-green);
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(34, 197, 94, 0.3);
+      box-shadow: 0 6px 12px rgba(22, 163, 74, 0.3);
     }
 
     /* قسم اللعبة */
@@ -390,7 +391,7 @@
     .feature-icon {
       width: 50px;
       height: 50px;
-      background: rgba(34, 197, 94, 0.1);
+      background: rgba(22, 163, 74, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -409,7 +410,7 @@
       color: var(--text-gray);
     }
 
-     /* الألعاب المشابهة */
+    /* الألعاب المشابهة */
     .similar-games {
       width: 100%;
       max-width: 1200px;
@@ -713,30 +714,27 @@
   <div class="game-container">
     <div class="game-header">
       <div class="game-thumbnail">
-        <img src="https://img.gamedistribution.com/7a175af95dad43fb94a64005cde61d77-512x384.jpeg" alt="Farm Day Village">
-
-
-        <i class="fas fa-tractor"></i>
+        <i class="fas fa-tree"></i>
       </div>
       
       <div class="game-info">
         <h1 class="game-title">
-          Farm Day Village
+          Country Life Meadows
           <span class="game-badge">FARMING</span>
         </h1>
         <p class="game-description">
-          Build your dream farm in this exciting farming simulation game! 
-          Grow crops, raise animals, and expand your farm to become the most successful farmer.
+          Experience the peaceful life of countryside farming! Grow crops, raise animals, 
+          and build your dream farm in this charming and relaxing farming simulation game.
         </p>
         
         <div class="game-stats">
           <div class="stat">
             <i class="fas fa-star"></i>
-            <span>4.7/5 Rating</span>
+            <span>4.9/5 Rating</span>
           </div>
           <div class="stat">
             <i class="fas fa-users"></i>
-            <span>25K+ Players</span>
+            <span>56K+ Players</span>
           </div>
           <div class="stat">
             <i class="fas fa-gamepad"></i>
@@ -747,15 +745,16 @@
     </div>
     
     <div class="game-frame-container">
-      <div class="game-frame-wrapper">
-        <iframe 
-          src="https://html5.gamedistribution.com/7a175af95dad43fb94a64005cde61d77/" 
-          class="game-frame"
-          scrolling="no" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
+  <div class="game-frame-wrapper" style="text-align: center; padding: 40px;">
+    <p style="margin-bottom: 15px; font-size: 1.2rem; color: #1e293b; font-weight: 500;">
+      press the link to go itch io tm crafts.
+    </p>
+    <a href="https://beetreegames.itch.io/country-life-meadows" target="_blank" class="action-btn btn-primary">
+      <i class="fas fa-play"></i> Play it
+    </a>
+  </div>
+</div>
+
     
     <div class="game-actions">
       <button class="action-btn btn-primary" id="shareButton">
@@ -766,9 +765,11 @@
     <div class="game-details">
       <h2 class="section-title">About This Game</h2>
       <p>
-        Farm Day Village is a delightful farming simulation game where you can build and manage your own farm. 
-        Plant various crops, raise adorable animals, and expand your farm to create the agricultural paradise of your dreams. 
-        Enjoy the relaxing and rewarding experience of farm life!
+        Country Life Meadows invites you to escape to a peaceful rural paradise where you can 
+        build and manage your own farm. Plant a variety of crops, raise adorable animals, and 
+        create the farming homestead of your dreams. With beautiful scenery, changing seasons, 
+        and charming characters, this game offers a relaxing and rewarding farming experience 
+        that will keep you engaged for hours.
       </p>
       
       <div class="game-features">
@@ -777,8 +778,8 @@
             <i class="fas fa-seedling"></i>
           </div>
           <div class="feature-content">
-            <h3>Grow Crops</h3>
-            <p>Plant and harvest a variety of crops on your farm</p>
+            <h3>Farming Activities</h3>
+            <p>Plant and harvest various crops throughout the seasons</p>
           </div>
         </div>
         
@@ -787,42 +788,55 @@
             <i class="fas fa-cow"></i>
           </div>
           <div class="feature-content">
-            <h3>Raise Animals</h3>
-            <p>Take care of cute farm animals and collect their products</p>
+            <h3>Animal Husbandry</h3>
+            <p>Raise and care for farm animals like cows, chickens, and sheep</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-expand"></i>
+            <i class="fas fa-home"></i>
           </div>
           <div class="feature-content">
-            <h3>Expand Farm</h3>
-            <p>Unlock new areas and buildings to grow your farm</p>
+            <h3>Farm Expansion</h3>
+            <p>Build and upgrade farm buildings to expand your operations</p>
           </div>
         </div>
         
         <div class="feature">
           <div class="feature-icon">
-            <i class="fas fa-truck"></i>
+            <i class="fas fa-store"></i>
           </div>
           <div class="feature-content">
-            <h3>Sell Products</h3>
-            <p>Sell your farm products to earn coins and expand</p>
+            <h3>Market Sales</h3>
+            <p>Sell your farm products at the local market for profits</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   
-    <!-- ألعاب مشابهة -->
+   <!-- ألعاب مشابهة -->
   <div class="similar-games">
     <h2 class="section-title">Similar Games</h2>
     
     <div class="games-grid">
       <div class="game-card">
         <div class="game-card-thumb">
-          <img src="/images/ConnectFruits.jpg" alt="ConnectFruits">
+          <img src="/images/ColorSortPuzzle.jpg" alt="TM Runner">
+        </div>
+        <div class="game-card-content">
+          <h3 class="game-card-title">Color Sort Puzzle</h3>
+          <p>Sort the colors into the right tubes and challenge your brain!</p>
+          <div class="game-card-actions">
+            <a href="/games/colorsortpuzzle.html" class="game-card-btn">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-card">
+        <div class="game-card-thumb">
+          <img src="/images/ConnectFruits.jpg" alt="Connect Fruits">
         </div>
         <div class="game-card-content">
           <h3 class="game-card-title">Connect Fruits</h3>
@@ -835,44 +849,32 @@
       
       <div class="game-card">
         <div class="game-card-thumb">
-          <img src="/images/originalquiz.png" alt="originalquiz">
+          <img src="/images/ElliesRecipeDubaiChocolateBar.jpg" alt="ElliesRecipeDubaiChocolateBar">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">original quiz</h3>
-          <p>Test your knowledge in sports, music, and more!</p>
+          <h3 class="game-card-title">Ellie's Recipe: Dubai Chocolate Bar</h3>
+          <p>Help Ellie create a delicious Dubai-style chocolate bar in this fun cooking game!</p>
           <div class="game-card-actions">
-            <a href="/games/generalquiz.html" class="game-card-btn">Play Now</a>
+            <a href="/games/ElliesRecipeDubaiChocolateBar.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
       
       <div class="game-card">
         <div class="game-card-thumb">
-          <img src="/images/KillTheKing.jpg" alt="Kill The King">
+          <img src="/images/MasterDash.jpg" alt="MasterDash">
         </div>
         <div class="game-card-content">
-          <h3 class="game-card-title">Kill The King</h3>
-          <p>Take down the king in this action-packed medieval challenge!</p>
+          <h3 class="game-card-title">Master Dash</h3>
+          <p>Dash through obstacles and test your reflexes in this fast-paced game!</p>
           <div class="game-card-actions">
-            <a href="/games/killtheking.html" class="game-card-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-card">
-        <div class="game-card-thumb">
-          <img src="/images/MyFashionHairSalon.jpg" alt="MyFashionHairSalon">
-        </div>
-        <div class="game-card-content">
-          <h3 class="game-card-title">My Fashion Hair Salon</h3>
-          <p>Style, cut, and color hair in your very own fashion salon!</p>
-          <div class="game-card-actions">
-            <a href="/games/MyFashionHairSalon.html" class="game-card-btn">Play Now</a>
+            <a href="/games/masterdash.html" class="game-card-btn">Play Now</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- نافذة المشاركة -->
   <div class="share-modal" id="shareModal">
@@ -941,7 +943,7 @@
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Farm Day Village page loaded!');
+      console.log('Country Life Meadows page loaded!');
       
       // تأثير تحميل الصفحة
       const loadingOverlay = document.createElement('div');
@@ -959,7 +961,7 @@
       loadingOverlay.innerHTML = `
         <div style="text-align: center;">
           <div style="width: 50px; height: 50px; background: var(--accent-yellow); border-radius: 50%; margin: 0 auto; animation: bounce 1s infinite alternate;"></div>
-          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Farm Day Village...</p>
+          <p style="margin-top: 20px; color: var(--text-dark); font-weight: 500;">Loading Country Life Meadows...</p>
         </div>
       `;
       document.body.appendChild(loadingOverlay);
@@ -999,7 +1001,7 @@
       
       // تحديث روابط المشاركة للشبكات الاجتماعية
       const encodedUrl = encodeURIComponent(window.location.href);
-      const encodedTitle = encodeURIComponent('Farm Day Village - Awesome Farming Game on tm crafts');
+      const encodedTitle = encodeURIComponent('Country Life Meadows - Peaceful Farming Simulation Game on tm crafts');
       
       document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
       document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
