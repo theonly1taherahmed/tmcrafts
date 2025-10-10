@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5684056862243969"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TM IQ Test - tm crafts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* نظام الألوان المحسن */
+    :root {
+      --primary-purple: #8b5cf6;
+      --secondary-purple: #a78bfa;
+      --accent-pink: #ec4899;
+      --accent-yellow: #f59e0b;
+      --accent-blue: #3b82f6;
+      --dark-bg: #1e293b;
+      --darker-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-light: #ffffff;
+      --text-gray: #64748b;
+      --border-radius: 12px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* الخلفية المتحركة المحسنة */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--light-bg) 0%, #f5f3ff 100%);
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 25%);
+      animation: glowPulse 8s ease-in-out infinite;
+    }
+
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .float-element.circle1 {
+      width: 40px;
+      height: 40px;
+      top: 15%;
+      left: 10%;
+      background: var(--primary-purple);
+      animation-delay: 0s;
+    }
+
+    .float-element.circle2 {
+      width: 25px;
+      height: 25px;
+      top: 25%;
+      left: 80%;
+      background: var(--accent-yellow);
+      animation-delay: 1s;
+    }
+
+    .float-element.circle3 {
+      width: 35px;
+      height: 35px;
+      top: 65%;
+      left: 15%;
+      background: var(--accent-pink);
+      animation-delay: 2s;
+    }
+
+    .float-element.circle4 {
+      width: 30px;
+      height: 30px;
+      top: 75%;
+      left: 75%;
+      background: var(--accent-blue);
+      animation-delay: 3s;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-purple);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFade 1s ease-out forwards;
+      z-index: -1;
+    }
+
+    .particle.circle {
+      background: var(--accent-yellow);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+      66% { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes particleFade {
+      0% { opacity: 0.8; transform: translate(0, 0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+    }
+
+    /* الهيدر المحسن بشكل كبير */
+    .header {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      border-radius: var(--border-radius);
+      margin-bottom: 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background: var(--accent-yellow);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: #fbbf24;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    /* محتوى الكويز */
+    .quiz-container {
+      width: 100%;
+      max-width: 800px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      padding: 30px;
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .quiz-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .quiz-description {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .quiz-stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      background: var(--light-bg);
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+    }
+
+    .stat i {
+      color: var(--accent-yellow);
+    }
+
+    /* أسئلة الكويز */
+    .quiz-content {
+      margin-top: 20px;
+    }
+
+    .question-container {
+      background: var(--light-bg);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .question-number {
+      font-size: 0.9rem;
+      color: var(--primary-purple);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .answers-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .answer-btn {
+      padding: 15px 20px;
+      border-radius: var(--border-radius);
+      border: 2px solid #e2e8f0;
+      background: var(--card-bg);
+      color: var(--text-dark);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .answer-btn:hover {
+      border-color: var(--primary-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(139, 92, 246, 0.1);
+    }
+
+    .answer-btn.selected {
+      background: var(--primary-purple);
+      color: white;
+      border-color: var(--primary-purple);
+    }
+
+    .answer-btn .answer-icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .quiz-progress {
+      height: 8px;
+      background: var(--light-bg);
+      border-radius: 4px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    /* نتيجة الكويز */
+    .quiz-result {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .result-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .result-emoji {
+      font-size: 4rem;
+      margin: 20px 0;
+    }
+
+    .result-description {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .result-details {
+      background: var(--light-bg);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 25px 0;
+      text-align: left;
+    }
+
+    .result-details h3 {
+      color: var(--primary-purple);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .result-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .trait-badge {
+      background: var(--primary-purple);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .action-btn {
+      padding: 12px 25px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary-purple);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(139, 92, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* واجهة المشاركة الاجتماعية الجديدة */
+    .social-share {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .social-share.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .share-container {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .social-share.active .share-container {
+      transform: translateY(0);
+    }
+
+    .share-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    .share-platforms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .share-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border-radius: var(--border-radius);
+      background: var(--light-bg);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .share-btn i {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .share-btn span {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .whatsapp-btn { color: #25D366; }
+    .facebook-btn { color: #1877F2; }
+    .twitter-btn { color: #1DA1F2; }
+    .instagram-btn { color: #E4405F; }
+    .telegram-btn { color: #0088cc; }
+    .copy-btn { color: var(--primary-purple); }
+
+    .share-close {
+      background: var(--primary-purple);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .share-close:hover {
+      background: var(--secondary-purple);
+    }
+
+    /* تأثيرات للعناصر */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* تحسينات للشاشات الصغيرة */
+    @media (max-width: 900px) {
+      .quiz-title {
+        font-size: 1.8rem;
+      }
+      
+      .question-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .quiz-title {
+        font-size: 1.6rem;
+      }
+      
+      .result-actions {
+        flex-direction: column;
+      }
+      
+      .action-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .quiz-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .share-platforms {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="float-element circle1"></div>
+    <div class="float-element circle2"></div>
+    <div class="float-element circle3"></div>
+    <div class="float-element circle4"></div>
+  </div>
+
+  <!-- واجهة المشاركة الاجتماعية -->
+  <div class="social-share" id="social-share">
+    <div class="share-container">
+      <h3 class="share-title">Share your result!</h3>
+      <div class="share-platforms">
+        <button class="share-btn whatsapp-btn" data-platform="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </button>
+        <button class="share-btn facebook-btn" data-platform="facebook">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </button>
+        <button class="share-btn twitter-btn" data-platform="twitter">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+        </button>
+        <button class="share-btn instagram-btn" data-platform="instagram">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </button>
+        <button class="share-btn telegram-btn" data-platform="telegram">
+          <i class="fab fa-telegram"></i>
+          <span>Telegram</span>
+        </button>
+        <button class="share-btn copy-btn" data-platform="copy">
+          <i class="fas fa-copy"></i>
+          <span>Copy Link</span>
+        </button>
+      </div>
+      <button class="share-close" id="share-close">Close</button>
+    </div>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="/images/tmcraft.png" alt="tm crafts Logo" class="logo-img">
+    </div>
+    
+    <a href="../index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </header>
+
+  <!-- محتوى الكويز -->
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1 class="quiz-title">🧠 TM Quick IQ Test 🧠</h1>
+      <p class="quiz-description">A quick, fun IQ-style test — 13 short questions to estimate reasoning level.</p>
+      
+      <div class="quiz-stats">
+        <div class="stat">
+          <i class="fas fa-question-circle"></i>
+          <span id="total-questions">13 Questions</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-check-circle"></i>
+          <span id="current-progress">Progress: 0%</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="quiz-progress">
+      <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+    </div>
+    
+    <div class="quiz-content" id="quiz-content">
+      <div class="question-container">
+        <div class="question-number" id="question-number">Question 1 of 13</div>
+        <div class="question-text" id="question-text">Loading question...</div>
+        
+        <div class="answers-container" id="answers-container">
+          <!-- سيتم إضافة الإجابات هنا عبر JavaScript -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="quiz-result" id="quiz-result" style="display: none;">
+      <h2 class="result-title">Your IQ Estimate 🧠</h2>
+      <div class="result-emoji" id="result-emoji">🌟</div>
+      <div class="result-description" id="result-description"></div>
+      
+      <div class="result-details">
+        <h3>Your Score:</h3>
+        <div class="result-traits" id="result-traits">
+          <!-- سيتم إضافة النتيجة هنا عبر JavaScript -->
+        </div>
+      </div>
+      
+      <div class="result-actions">
+        <button class="action-btn btn-primary" id="restart-btn">
+          <i class="fas fa-redo"></i> Try Again
+        </button>
+        <button class="action-btn btn-secondary" id="share-btn">
+          <i class="fas fa-share-alt"></i> Share Result
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      IQ test data
+      كل سؤال يحتوي على: q (نص السؤال)، a (مصفوفة الخيارات)، map (نقاط كل خيار كـ رقم)
+      قواعد النقاط: الخيار الأول = 2 نقاط (أفضل)، الثاني = 1 نقطة، الثالث = 0 نقطة
+      (يمكن تعديل النقاط لكل سؤال لو رغبت)
+    */
+    const quizData = [
+      { q: "1) Which number completes the series: 2, 4, 8, 16, ?", a: ["32", "24", "30"], map: [2,1,0] },
+      { q: "2) If ALL BLOOPS are RAZZIES and ALL RAZZIES are LAZIES, then:", a: ["All BLOOPS are LAZIES", "Some LAZIES are BLOOPS", "No BLOOPS are LAZIES"], map: [2,1,0] },
+      { q: "3) Find the odd one out: Apple, Banana, Carrot, Grape", a: ["Carrot", "Banana", "Grape"], map: [2,1,0] },
+      { q: "4) If 5 workers build 5 tables in 5 days, how many days for 1 worker to build 1 table?", a: ["5 days", "1 day", "25 days"], map: [2,1,0] },
+      { q: "5) Which shape comes next in pattern? (conceptual logical pattern)", a: ["Square", "Circle", "Triangle"], map: [2,1,0] },
+      { q: "6) WORD ANALOGY: Book is to Reading as Fork is to:", a: ["Eating", "Drawing", "Writing"], map: [2,1,0] },
+      { q: "7) If John's mother has three children, April, May, and ?", a: ["John", "June", "July"], map: [2,1,0] },
+      { q: "8) Which number is the smallest: 3/4, 0.8, 7/10", a: ["7/10", "3/4", "0.8"], map: [2,1,0] },
+      { q: "9) If TRIANGLE = 3, SQUARE = 4, PENTAGON = 5, what is the value of HEXAGON?", a: ["6", "5", "8"], map: [2,1,0] },
+      { q: "10) Rearrange letters to make a word and choose the category: 'LAPPE' ->", a: ["APPLE", "PEPAL", "PALEP"], map: [2,1,0] },
+      { q: "11) If 2x + 3 = 11, x equals:", a: ["4", "3", "5"], map: [2,1,0] },
+      { q: "12) Which completes the analogy: Fingers are to Hand as Toes are to:", a: ["Foot", "Arm", "Leg"], map: [2,1,0] },
+      { q: "13) If sequence adds 3 then multiplies by 2: start 1 -> ? after two steps", a: ["8", "6", "10"], map: [2,1,0] }
+    ];
+
+    let currentQuestion = 0;
+    let totalScore = 0;
+
+    const questionNumberEl = document.getElementById("question-number");
+    const questionTextEl = document.getElementById("question-text");
+    const answersContainerEl = document.getElementById("answers-container");
+    const progressBarEl = document.getElementById("progress-bar");
+    const currentProgressEl = document.getElementById("current-progress");
+    const totalQuestionsEl = document.getElementById("total-questions");
+    const quizContentEl = document.getElementById("quiz-content");
+    const quizResultEl = document.getElementById("quiz-result");
+    const resultEmojiEl = document.getElementById("result-emoji");
+    const resultDescriptionEl = document.getElementById("result-description");
+    const resultTraitsEl = document.getElementById("result-traits");
+    const restartBtn = document.getElementById("restart-btn");
+    const shareBtn = document.getElementById("share-btn");
+    const socialShareEl = document.getElementById("social-share");
+    const shareCloseEl = document.getElementById("share-close");
+    const shareButtons = document.querySelectorAll('.share-btn');
+
+    // وصف الفئات التقريبية حسب الدرجة
+    const iqDescriptions = [
+      { range: [0, 8], title: "Below Average", emoji: "🔻", desc: "Your score is below average. Practice logical puzzles and reasoning exercises to improve." },
+      { range: [9, 17], title: "Average", emoji: "⚖️", desc: "Your reasoning is around average. Regular practice can boost speed and accuracy." },
+      { range: [18, 22], title: "Above Average", emoji: "⬆️", desc: "Good performance — you show strong logical reasoning skills." },
+      { range: [23, 26], title: "High", emoji: "🚀", desc: "Excellent performance — strong problem-solving and analytical thinking." }
+    ];
+
+    // تهيئة الكويز
+    function initQuiz() {
+      totalQuestionsEl.textContent = `${quizData.length} Questions`;
+      loadQuestion();
+      
+      // إضافة مستمعي الأحداث لأزرار المشاركة
+      shareBtn.addEventListener("click", showShareModal);
+      shareCloseEl.addEventListener("click", hideShareModal);
+      
+      shareButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          shareResult(this.dataset.platform);
+        });
+      });
+    }
+
+    // تحميل السؤال الحالي
+    function loadQuestion() {
+      const question = quizData[currentQuestion];
+      
+      // تحديث رقم السؤال والتقدم
+      questionNumberEl.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+      const progressPercent = ((currentQuestion) / quizData.length) * 100;
+      progressBarEl.style.width = `${progressPercent}%`;
+      currentProgressEl.textContent = `Progress: ${Math.round(progressPercent)}%`;
+      
+      // عرض نص السؤال
+      questionTextEl.textContent = question.q;
+      
+      // مسح الإجابات السابقة
+      answersContainerEl.innerHTML = "";
+      
+      // إضافة الإجابات
+      question.a.forEach((answer, index) => {
+        const answerBtn = document.createElement("button");
+        answerBtn.className = "answer-btn";
+        answerBtn.innerHTML = `
+          <span class="answer-icon">${String.fromCharCode(65 + index)}</span>
+          ${answer}
+        `;
+        answerBtn.addEventListener("click", () => selectAnswer(question.map[index]));
+        answersContainerEl.appendChild(answerBtn);
+      });
+    }
+
+    // عند اختيار إجابة (الـ map هنا رقم النقاط)
+    function selectAnswer(points) {
+      // سجل النقاط
+      totalScore += Number(points || 0);
+
+      // أرسل للإحصاء/الشيت (نرسل السؤال الحالي ونص الاختيار كمعلومة أيضاً)
+      // لاحظ: نرسل السؤال الفعلي والاختيار كنص عبر fetch إن رغبت
+      // هنا نرسل الـ session والدرجة كذلك
+      sendToSheet(quizData[currentQuestion].q, points);
+
+      currentQuestion++;
+      
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    // عرض النتيجة النهائية
+    function showResult() {
+      quizContentEl.style.display = "none";
+      quizResultEl.style.display = "block";
+      progressBarEl.style.width = "100%";
+      currentProgressEl.textContent = "Progress: 100%";
+
+      // حساب تقديري لمقياس IQ (تحويل النقاط إلى نطاق تقريبي)
+      // نقاط ممكنة: 0 .. 26
+      const score = totalScore;
+      let category = iqDescriptions[0];
+      for (let i=0; i<iqDescriptions.length; i++) {
+        const r = iqDescriptions[i].range;
+        if (score >= r[0] && score <= r[1]) {
+          category = iqDescriptions[i];
+          break;
+        }
+      }
+
+      // تحويل النقاط إلى مقياس IQ تقريبي (تقديري فقط)
+      // سنحوّل 0..26 إلى نطاق IQ تقريبي 70..130 بشكل خطي
+      const estimatedIQ = Math.round(70 + (score / 26) * (130 - 70));
+
+      // عرض النتيجة
+      resultEmojiEl.textContent = category.emoji;
+      resultDescriptionEl.textContent = `${category.title} — ${category.desc}`;
+
+      // عرض تفاصيل النتيجة
+      resultTraitsEl.innerHTML = "";
+      const scoreBadge = document.createElement("span");
+      scoreBadge.className = "trait-badge";
+      scoreBadge.textContent = `Score: ${score} / ${quizData.length * 2} — Estimated IQ: ${estimatedIQ}`;
+      resultTraitsEl.appendChild(scoreBadge);
+
+      // أضف وصف تفصيلي إضافي
+      const detailBadge = document.createElement("span");
+      detailBadge.className = "trait-badge";
+      detailBadge.textContent = `Category: ${category.title}`;
+      resultTraitsEl.appendChild(detailBadge);
+
+      // إرسال النتيجة النهائية للشيت أيضاً
+      sendToSheet("RESULT", `score:${score},iq:${estimatedIQ}`);
+    }
+
+    // إعادة بدء الكويز
+    restartBtn.addEventListener("click", () => {
+      currentQuestion = 0;
+      totalScore = 0;
+      quizContentEl.style.display = "block";
+      quizResultEl.style.display = "none";
+      loadQuestion();
+    });
+
+    // عرض واجهة المشاركة
+    function showShareModal() {
+      socialShareEl.classList.add('active');
+    }
+
+    // إخفاء واجهة المشاركة
+    function hideShareModal() {
+      socialShareEl.classList.remove('active');
+    }
+
+    // مشاركة النتيجة على المنصات الاجتماعية
+    function shareResult(platform) {
+      const score = totalScore;
+      const estimatedIQ = Math.round(70 + (score / 26) * (130 - 70));
+      const shareText = `I took the TM Quick IQ Test and scored ${score}/26 — Estimated IQ ${estimatedIQ}. Try it:`;
+      const shareUrl = encodeURIComponent(window.location.href);
+      const encodedText = encodeURIComponent(shareText);
+      
+      let shareLink = '';
+      
+      switch(platform) {
+        case 'whatsapp':
+          shareLink = `https://wa.me/?text=${encodedText}%20${shareUrl}`;
+          break;
+        case 'facebook':
+          shareLink = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodedText}`;
+          break;
+        case 'twitter':
+          shareLink = `https://twitter.com/intent/tweet?text=${encodedText}&url=${shareUrl}`;
+          break;
+        case 'instagram':
+          alert('To share on Instagram, copy the result and paste it in your Instagram story or post.');
+          return;
+        case 'telegram':
+          shareLink = `https://t.me/share/url?url=${shareUrl}&text=${encodedText}`;
+          break;
+        case 'copy':
+          navigator.clipboard.writeText(`${shareText} ${window.location.href}`).then(() => {
+            alert('Result copied to clipboard! 📋');
+            hideShareModal();
+            return;
+          }).catch(() => {
+            prompt('Copy this text to share:', `${shareText} ${window.location.href}`);
+            hideShareModal();
+            return;
+          });
+          break;
+      }
+      
+      if (platform !== 'copy') {
+        window.open(shareLink, '_blank');
+        hideShareModal();
+      }
+    }
+
+    // بدء الكويز عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', initQuiz);
+
+    // ✅ إرسال البيانات لجوجل شيت
+    function sendToSheet(question, answer) {
+      // ← ضع هنا رابط الويب آب (Google Apps Script) الخاص بك
+      const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwtijnC_MwoEAnyIDN2QWl220lAOxXqXVZctwW43Uta9TbzDq9_b9U_ywPSCnxD5vU1/exec";
+
+      fetch(WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          question: question,
+          answer: answer,
+          session: session
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).catch(err => console.error("Error sending to sheet:", err));
+    }
+
+    // 🔑 session ID عشوائي لكل مستخدم
+    const session = Math.random().toString(36).substr(2, 9);
+
+  </script>
+</body>
+</html>
